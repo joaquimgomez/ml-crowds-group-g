@@ -10,7 +10,7 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255) # Empty Cell
 RED = (255, 0, 0) # Pedestrian
 BLUE = (0, 0, 255) # Obstacle
-YELLOW = (255, 255, 0) # Target
+YELLOW = (255, 255, 0) # Targets
 
 # Screensize, can be changed
 size = (width, height) = (600, 600)
