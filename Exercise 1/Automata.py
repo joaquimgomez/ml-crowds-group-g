@@ -20,12 +20,23 @@ class Automata:
         for pedestrian in self.pedestrians:
             self.achievedTargets[pedestrian[0]] = False
 
+        self.unreachableCells = []
+        for obstacle in self.obstacles:
+            self.unreachableCells.append(obstacle)
+
+    def getUnreachableCells(self):
+        unreachableCells = self.unreachableCells
+        for pedestrian in self.pedestrians:
+            unreachableCells.append((pedestrian[1], pedestrian[2]))
+        return unreachableCells
+
     def getDimensions(self):
         return self.width, self.height
             
     def getState(self):
         grid = dok_matrix((self.height, self.width), dtype=int)
 
+        # TODO: Here maybe istead of 1, we put the pedestrianId
         for pedestrian in self.pedestrians:
             grid[pedestrian[1], pedestrian[2]] = 1
 
@@ -36,6 +47,14 @@ class Automata:
             grid[target[1], target[2]] = 3
 
         return grid.toarray()
+
+    def getStateWithPaths(self):
+        grid = self.getState();
+        for pedestrianId in self.paths:
+            for x,y in self.paths[pedestrianId]:
+                grid[x][y] = pedestrianId
+        return grid
+
 
     def getPaths(self):
         return self.paths
@@ -83,11 +102,14 @@ class Automata:
                 self.achievedTargets[pedestrianId] = True
             else:
                 # Compute the distance from all neighbors in the neighborhood to the target, save the minimum distance
-                neighborWithMinDist =  (0, 0)
+                # TODO: What if there is nowhere to go ? Then it goes to (0,0) directly
+                neighborWithMinDist = (0, 0)
                 minDist = inf
                 for neighbor in neighbors:
                     dist = sqrt((neighbor[0] - targetToBeAchieved[0]) ** 2 + (neighbor[1] - targetToBeAchieved[1]) ** 2)
-                    
+
+
+
                     if dist < minDist and not neighbor in self.obstacles:
                         neighborWithMinDist = (neighbor[0], neighbor[1])
                         minDist = dist

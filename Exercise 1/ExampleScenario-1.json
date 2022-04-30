@@ -1,16 +1,16 @@
 {
     "name": "NAME_OF_THE_SCENARIO",
     "dimensions": {
-        "width": 6,
-        "height": 6
+        "width": 50,
+        "height": 50
     },
     "pedestrians": [
-        [1, 2, 1]
+        [1, 5, 25], [2, 5, 26]
     ],
     "targets": [
-        [[1], 2, 5]
+        [[1, 2], 25, 25]
     ],
     "obstacles": [
-        
+
     ]
 }
