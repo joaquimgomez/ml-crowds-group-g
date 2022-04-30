@@ -1,4 +1,4 @@
-from utils import readScenarioFromJSON, typeToId
+from utils import readScenarioFromJSON
 
 from scipy.sparse import dok_matrix
 from numpy import uint8
@@ -36,6 +36,20 @@ class Automata:
 
     def getPaths(self):
         return self.paths
+
+    def getPathsOnAGrid(self):
+        grid = dok_matrix((self.height, self.width), dtype=uint8)
+
+        for obstacle in self.obstacles:
+            grid[obstacle[0], obstacle[1]] = 2
+
+        for target in self.targets:
+            grid[target[0], target[1]] = 3
+
+        for pedestrian in self.pedestrians:
+            grid[pedestrian[1], pedestrian[1]] = 0
+
+        return grid.toarray()
 
     def getStatus(self):
         return self.achievedTargets
