@@ -40,6 +40,6 @@ def readScenarioFromJSON(jsonFilePath):
 
     targets = []
     for target in scenarioDescription["targets"]:
-        targets.append((target[0], target[1]))
+        targets.append((target[0], target[1], target[2]))
 
     return width, height, pedestrians, targets, obstacles

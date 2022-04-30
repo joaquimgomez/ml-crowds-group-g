@@ -13,26 +13,29 @@ class Automata:
         # Initialize arrays of paths for each pedestrian
         self.paths = {}     # {pedestrianId: [(x,y), ...]}
         for pedestrian in self.pedestrians:
-            self.path[pedestrian[0]] = [(pedestrian[1], pedestrian[2])]
+            self.paths[pedestrian[0]] = [(pedestrian[1], pedestrian[2])]
 
         # Initialize dictionary of achieved target status for each pedestrian
         self.achievedTargets = {}
         for pedestrian in self.pedestrians:
             self.achievedTargets[pedestrian[0]] = False
 
+    def getDimensions(self):
+        return self.width, self.height
+            
     def getState(self):
         grid = dok_matrix((self.height, self.width), dtype=uint8)
 
         for pedestrian in self.pedestrians:
-            grid[pedestrian[0], pedestrian[1]] = 1
+            grid[pedestrian[1], pedestrian[2]] = 1
 
         for obstacle in self.obstacles:
             grid[obstacle[0], obstacle[1]] = 2
 
         for target in self.targets:
-            grid[target[0], target[1]] = 3
+            grid[target[1], target[2]] = 3
 
-        return self.grid.toarray()
+        return grid.toarray()
 
     def getPaths(self):
         return self.paths
@@ -44,10 +47,10 @@ class Automata:
             grid[obstacle[0], obstacle[1]] = 2
 
         for target in self.targets:
-            grid[target[0], target[1]] = 3
+            grid[target[1], target[2]] = 3
 
         for pedestrian in self.pedestrians:
-            grid[pedestrian[1], pedestrian[1]] = 0
+            grid[pedestrian[1], pedestrian[2]] = pedestrian[0]
 
         return grid.toarray()
 
@@ -59,7 +62,7 @@ class Automata:
         return [(x-1, y-1), (x, y-1), (x+1, y-1), (x-1, y), (x+1, y), (x-1, y+1), (x, y+1), (x+1, y+1)]
 
     def basicOperator(self):
-        for pedestrian in self.pedestrians:
+        for index, pedestrian in enumerate(self.pedestrians):
             pedestrianId = pedestrian[0]
 
             neighbors = self.neighbors(pedestrian[1], pedestrian[2])
@@ -82,13 +85,12 @@ class Automata:
                 neighborWithMinDist =  (0, 0)
                 minDist = inf
                 for neighbor in neighbors:
-                    if sqrt((neighbor[0] - targetToBeAchieved[0]) ** 2 + (neighbor[1] - targetToBeAchieved[1]) ** 2) < minDist \
+                    if sqrt((neighbor[0] - targetToBeAchieved[1]) ** 2 + (neighbor[0] - targetToBeAchieved[1]) ** 2) < minDist \
                             and not neighbor in self.obstacles:
                         neighborWithMinDist = (neighbor[0], neighbor[1])
 
                 # Change the cell not occupied by the pedestrian
-                pedestrian[1] = neighborWithMinDist[0]
-                pedestrian[2] = neighborWithMinDist[1]
+                self.pedestrians[index] = (pedestrianId, neighborWithMinDist[0], neighborWithMinDist[1])
 
                 # TODO: What to do when two pedestrians want to be in the same cell?
 
