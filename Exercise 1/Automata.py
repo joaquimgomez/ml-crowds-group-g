@@ -24,7 +24,7 @@ class Automata:
         return self.width, self.height
             
     def getState(self):
-        grid = dok_matrix((self.height, self.width), dtype=uint8)
+        grid = dok_matrix((self.height, self.width), dtype=int)
 
         for pedestrian in self.pedestrians:
             grid[pedestrian[1], pedestrian[2]] = 1
@@ -41,16 +41,17 @@ class Automata:
         return self.paths
 
     def getPathsOnAGrid(self):
-        grid = dok_matrix((self.height, self.width), dtype=uint8)
-
+        grid = dok_matrix((self.height, self.width), dtype=int)
+        
         for obstacle in self.obstacles:
             grid[obstacle[0], obstacle[1]] = 2
 
         for target in self.targets:
             grid[target[1], target[2]] = 3
-
-        for pedestrian in self.pedestrians:
-            grid[pedestrian[1], pedestrian[2]] = pedestrian[0]
+        
+        for pedestrian in self.paths:
+            for i, j in self.paths[pedestrian]:
+                grid[i, j] = pedestrian
 
         return grid.toarray()
 
@@ -85,9 +86,11 @@ class Automata:
                 neighborWithMinDist =  (0, 0)
                 minDist = inf
                 for neighbor in neighbors:
-                    if sqrt((neighbor[0] - targetToBeAchieved[1]) ** 2 + (neighbor[0] - targetToBeAchieved[1]) ** 2) < minDist \
-                            and not neighbor in self.obstacles:
+                    dist = sqrt((neighbor[0] - targetToBeAchieved[0]) ** 2 + (neighbor[1] - targetToBeAchieved[1]) ** 2)
+                    
+                    if dist < minDist and not neighbor in self.obstacles:
                         neighborWithMinDist = (neighbor[0], neighbor[1])
+                        minDist = dist
 
                 # Change the cell not occupied by the pedestrian
                 self.pedestrians[index] = (pedestrianId, neighborWithMinDist[0], neighborWithMinDist[1])
@@ -95,7 +98,7 @@ class Automata:
                 # TODO: What to do when two pedestrians want to be in the same cell?
 
                 # Save the current cell in the path
-                self.paths[pedestrianId].append((pedestrian[1], pedestrian[2]))
+                self.paths[pedestrianId].append((self.pedestrians[index][1], self.pedestrians[index][2]))
 
     def simulate(self, operator, nSteps):
         for step in range(nSteps):
