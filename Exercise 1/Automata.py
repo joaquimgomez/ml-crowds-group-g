@@ -2,7 +2,7 @@ from utils import readScenarioFromJSON
 
 from scipy.sparse import dok_matrix
 from numpy import uint8
-
+import numpy as np
 from math import inf, sqrt
 
 
@@ -83,19 +83,25 @@ class Automata:
 
     @staticmethod
     def neighbors(x, y, width, height):
-        # TODO: what if a neighbor is outside of the grid ? Do we need to make sure that all the neighbors are inside the grid ?
+
         neighbors = [(x-1, y-1), (x, y-1), (x+1, y-1), (x-1, y), (x+1, y), (x-1, y+1), (x, y+1), (x+1, y+1)]
 
         # Checker for a neighbor is not outside of the grid, only selects proper neighbors.
         def validate(coor):
             if coor[0] < 0 or coor[1] < 0:
                 return False
-            elif coor[0] >= height or coor[1] > width:
+            elif coor[0] >= height or coor[1] >= width:
                 return False
             else:
                 return True
 
         return [neighbor for neighbor in neighbors if validate(neighbor)]
+
+    def euclidian_distance(self, neighbor, target):
+        neighbor = np.array(neighbor)
+        target = np.array(target)
+
+        return np.linalg.norm(neighbor - target)
 
 
 
@@ -121,12 +127,17 @@ class Automata:
             else:
                 # Compute the distance from all neighbors in the neighborhood to the target, save the minimum distance
                 # TODO: What if there is nowhere to go ? Then it goes to (0,0) directly
+                if neighbors == self.unreachableCells:
+                    # See Notebook Cell 6 for a test case. This is for just obstacle check,
+                    # not figured out if all neighbors occupied by other pedestrians.
+                    self.achievedTargets[pedestrianId] = False
+                    break
+
                 neighborWithMinDist = (0, 0)
-                minDist = inf
+                minDist = np.inf  # same as inf, need to be concise with np.float64.
                 for neighbor in neighbors:
                     # TODO: Shouldn't we measure the distance from the midpoint of the box to the midpoint of the targets box ?
-                    dist = sqrt((neighbor[0] - targetToBeAchieved[0]) ** 2 + (neighbor[1] - targetToBeAchieved[1]) ** 2)
-
+                    dist = self.euclidian_distance(neighbor, targetToBeAchieved)  # np.float64
                     if dist < minDist and not neighbor in self.obstacles:
                         neighborWithMinDist = (neighbor[0], neighbor[1])
                         minDist = dist
