@@ -1,14 +1,22 @@
-from utils import readScenarioFromJSON
+from utils import readScenarioFromJSON, readScenarioFromJSONFilePath
 
 from scipy.sparse import dok_matrix
 from numpy import uint8
 import numpy as np
 from math import inf, sqrt
 
+from os.path import isdir, exists
+
 
 class Automata:
     def __init__(self, config):
-        self.width, self.height, self.pedestrians, self.targets, self.obstacles = readScenarioFromJSON(config)
+        
+        if type(config) is dict:
+            self.width, self.height, self.pedestrians, self.targets, self.obstacles = readScenarioFromJSON(config)
+        elif isdir(config) and exists(config):
+            self.width, self.height, self.pedestrians, self.targets, self.obstacles = readScenarioFromJSONFilePath(config)
+        else:
+            raise "The input config is not a valid path nor a JSON/dictionary."
 
         # Declared static variables for the static method neighbors().
         width = self.width
@@ -103,7 +111,17 @@ class Automata:
 
         return np.linalg.norm(neighbor - target)
 
+    def operatorWithUtilityFunction(self):
+        
+        #Utility function:
+        # Input cell index + current state of the cellular automaton
+        # Output: Utility at a fiven index
 
+        # operator: move the pedestrian to the neighboring cell with the highest utility value
+
+
+
+        pass
 
     def basicOperator(self):
         for index, pedestrian in enumerate(self.pedestrians):
@@ -153,5 +171,5 @@ class Automata:
             operator()
 
             if all(list(self.getStatus().values())):
-                print("Simulation finished after {} steps. All pedestrians achieved their targets.".format(step))
+                print("Simulation finished after {} steps. All pedestrians achieved their targets.".format(step + 1))
                 break
