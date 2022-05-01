@@ -15,7 +15,7 @@ idToType = {
     3: "T" 
 }
 
-def readScenarioFromJSON(jsonFilePath):
+def readScenarioFromJSONFilePath(jsonFilePath):
     """
     Reads a scenario from a JSON file.
     """
@@ -34,6 +34,32 @@ def readScenarioFromJSON(jsonFilePath):
     for pedestrian in scenarioDescription["pedestrians"]:
         pedestrians.append((pedestrian[0], pedestrian[1], pedestrian[2]))
     
+    obstacles = []
+    for obstacle in scenarioDescription["obstacles"]:
+        obstacles.append((obstacle[0], obstacle[1]))
+
+    targets = []
+    for target in scenarioDescription["targets"]:
+        targets.append((target[0], target[1], target[2]))
+
+    return width, height, pedestrians, targets, obstacles
+
+
+def readScenarioFromJSON(jsonFile):
+    """
+    Reads a scenario from a JSON file.
+    """
+
+    scenarioDescription = jsonFile
+
+    width = scenarioDescription["dimensions"]['width']
+    height = scenarioDescription["dimensions"]['height']
+
+    # Convert arrays of arrays to arrays of tuples for a better accessions of type "tuple IN list of tuples"
+    pedestrians = []
+    for pedestrian in scenarioDescription["pedestrians"]:
+        pedestrians.append((pedestrian[0], pedestrian[1], pedestrian[2]))
+
     obstacles = []
     for obstacle in scenarioDescription["obstacles"]:
         obstacles.append((obstacle[0], obstacle[1]))

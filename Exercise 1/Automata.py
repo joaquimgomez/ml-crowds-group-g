@@ -7,8 +7,8 @@ from math import inf, sqrt
 
 
 class Automata:
-    def __init__(self, scenarioFilePath):
-        self.width, self.height, self.pedestrians, self.targets, self.obstacles = readScenarioFromJSON(scenarioFilePath)
+    def __init__(self, config):
+        self.width, self.height, self.pedestrians, self.targets, self.obstacles = readScenarioFromJSON(config)
 
         # Initialize arrays of paths for each pedestrian
         self.paths = {}     # {pedestrianId: [(x,y), ...]}
@@ -79,6 +79,7 @@ class Automata:
 
     @staticmethod
     def neighbors(x, y):
+        # TODO: what if a neighbor is outside of the grid ? Do we need to make sure that all the neighbors are inside the grid ?
         return [(x-1, y-1), (x, y-1), (x+1, y-1), (x-1, y), (x+1, y), (x-1, y+1), (x, y+1), (x+1, y+1)]
 
     def basicOperator(self):
@@ -106,9 +107,8 @@ class Automata:
                 neighborWithMinDist = (0, 0)
                 minDist = inf
                 for neighbor in neighbors:
+                    # TODO: Shouldn't we measure the distance from the midpoint of the box to the midpoint of the targets box ?
                     dist = sqrt((neighbor[0] - targetToBeAchieved[0]) ** 2 + (neighbor[1] - targetToBeAchieved[1]) ** 2)
-
-
 
                     if dist < minDist and not neighbor in self.obstacles:
                         neighborWithMinDist = (neighbor[0], neighbor[1])
@@ -116,8 +116,6 @@ class Automata:
 
                 # Change the cell not occupied by the pedestrian
                 self.pedestrians[index] = (pedestrianId, neighborWithMinDist[0], neighborWithMinDist[1])
-
-                # TODO: What to do when two pedestrians want to be in the same cell?
 
                 # Save the current cell in the path
                 self.paths[pedestrianId].append((self.pedestrians[index][1], self.pedestrians[index][2]))
