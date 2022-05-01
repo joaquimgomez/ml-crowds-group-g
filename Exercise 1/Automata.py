@@ -10,6 +10,10 @@ class Automata:
     def __init__(self, config):
         self.width, self.height, self.pedestrians, self.targets, self.obstacles = readScenarioFromJSON(config)
 
+        # Declared static variables for the static method neighbors().
+        width = self.width
+        height = self.height
+
         # Initialize arrays of paths for each pedestrian
         self.paths = {}     # {pedestrianId: [(x,y), ...]}
         for pedestrian in self.pedestrians:
@@ -78,15 +82,28 @@ class Automata:
         return self.achievedTargets
 
     @staticmethod
-    def neighbors(x, y):
+    def neighbors(x, y, width, height):
         # TODO: what if a neighbor is outside of the grid ? Do we need to make sure that all the neighbors are inside the grid ?
-        return [(x-1, y-1), (x, y-1), (x+1, y-1), (x-1, y), (x+1, y), (x-1, y+1), (x, y+1), (x+1, y+1)]
+        neighbors = [(x-1, y-1), (x, y-1), (x+1, y-1), (x-1, y), (x+1, y), (x-1, y+1), (x, y+1), (x+1, y+1)]
+
+        # Checker for a neighbor is not outside of the grid, only selects proper neighbors.
+        def validate(coor):
+            if coor[0] < 0 or coor[1] < 0:
+                return False
+            elif coor[0] >= height or coor[1] > width:
+                return False
+            else:
+                return True
+
+        return [neighbor for neighbor in neighbors if validate(neighbor)]
+
+
 
     def basicOperator(self):
         for index, pedestrian in enumerate(self.pedestrians):
             pedestrianId = pedestrian[0]
 
-            neighbors = self.neighbors(pedestrian[1], pedestrian[2])
+            neighbors = self.neighbors(pedestrian[1], pedestrian[2], self.width, self.height)
 
             # Check if the target is in the neighborhood
             targetAchieved = False
