@@ -1,7 +1,7 @@
 from utils import readScenarioFromJSON, readScenarioFromJSONFilePath
 
 from scipy.sparse import dok_matrix
-from numpy import empty, full, uint8
+from numpy import full, uint8
 import numpy as np
 from math import inf, sqrt
 
@@ -85,11 +85,7 @@ class Automata:
 
         return grid.toarray()
 
-    def getStatus(self):
-        return self.achievedTargets
-
-    @staticmethod
-    def neighbors(x, y, width, height):
+    def neighbors(self, x, y):
 
         neighbors = [(x-1, y-1), (x, y-1), (x+1, y-1), (x-1, y), (x+1, y), (x-1, y+1), (x, y+1), (x+1, y+1)]
 
@@ -97,7 +93,7 @@ class Automata:
         def validate(coor):
             if coor[0] < 0 or coor[1] < 0:
                 return False
-            elif coor[0] >= height or coor[1] >= width:
+            elif coor[0] >= self.height or coor[1] >= self.width:
                 return False
             else:
                 return True
@@ -110,6 +106,19 @@ class Automata:
 
         return np.linalg.norm(neighbor - target)
     
+    def isTargetInNeighborhood(self, neighbors, pedestrianId):
+        # Check if the target is in the neighborhood
+        targetAchieved = False
+        targetToBeAchieved = (None, None)
+        for target in self.targets:
+            if pedestrianId in target[0] and ((target[1], target[2]) in neighbors):
+                targetAchieved = True
+                break
+            elif pedestrianId in target[0] and not ((target[1], target[2]) in neighbors):
+                targetToBeAchieved = (target[1], target[2])
+
+        return targetAchieved, targetToBeAchieved
+
     # Dijkstra's algoritm for flooding grid with distance values to a target cell assigning large values to unreachable cells   
     def dijkstra(self, target, avoidObstacles): 
         # Initialize distances grid with large values
@@ -127,7 +136,7 @@ class Automata:
             current = queue.pop(0)
 
             # For each neighbor of the current cell
-            for neighbor in self.neighbors(current[0], current[1], self.width, self.height):
+            for neighbor in self.neighbors(current[0], current[1]):
                 # If the neighbor is not an obstacle
                 if avoidObstacles:
                     if neighbor not in self.obstacles:
@@ -154,21 +163,13 @@ class Automata:
         for index, pedestrian in enumerate(self.pedestrians):
             pedestrianId = pedestrian[0]
 
-            neighbors = self.neighbors(pedestrian[1], pedestrian[2], self.width, self.height)
+            neighbors = self.neighbors(pedestrian[1], pedestrian[2])
 
-            # Check if the target is in the neighborhood
-            targetAchieved = False
-            targetToBeAchieved = (None, None)
-            for target in self.targets:
-                if pedestrianId in target[0] and ((target[1], target[2]) in neighbors):
-                    targetAchieved = True
-                    break
-                elif pedestrianId in target[0] and not ((target[1], target[2]) in neighbors):
-                    targetToBeAchieved = (target[1], target[2])
+            targetAchieved, targetToBeAchieved = self.isTargetInNeighborhood(neighbors, pedestrianId)
 
             if targetAchieved:
                 # Target archieved, then the pedestrian remains in the same cell and set its achieved target status to True
-                self.achievedTargets[pedestrianId] 
+                self.achievedTargets[pedestrianId] = True
             else:
                 distanceGrid = self.dijkstra(targetToBeAchieved, avoidObstacles)
 
@@ -191,17 +192,9 @@ class Automata:
         for index, pedestrian in enumerate(self.pedestrians):
             pedestrianId = pedestrian[0]
 
-            neighbors = self.neighbors(pedestrian[1], pedestrian[2], self.width, self.height)
+            neighbors = self.neighbors(pedestrian[1], pedestrian[2])
 
-            # Check if the target is in the neighborhood
-            targetAchieved = False
-            targetToBeAchieved = (None, None)
-            for target in self.targets:
-                if pedestrianId in target[0] and ((target[1], target[2]) in neighbors):
-                    targetAchieved = True
-                    break
-                elif pedestrianId in target[0] and not ((target[1], target[2]) in neighbors):
-                    targetToBeAchieved = (target[1], target[2])
+            targetAchieved, targetToBeAchieved = self.isTargetInNeighborhood(neighbors, pedestrianId)
 
             if targetAchieved:
                 # Target archieved, then the pedestrian remains in the same cell and set its achieved target status to True
@@ -234,6 +227,6 @@ class Automata:
         for step in range(nSteps):
             operator(avoidObstacles)
 
-            if all(list(self.getStatus().values())):
+            if all(list(self.achievedTargets.values())):
                 print("Simulation finished after {} steps. All pedestrians achieved their targets.".format(step + 1))
                 break
