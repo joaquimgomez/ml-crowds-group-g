@@ -76,14 +76,14 @@ class Automata:
         grid = dok_matrix((self.height, self.width), dtype=int)
         
         for obstacle in self.obstacles:
-            grid[obstacle[1], obstacle[0]] = 2
+            grid[obstacle[0], obstacle[1]] = 2
 
         for target in self.targets:
-            grid[target[2], target[1]] = 3
+            grid[target[1], target[2]] = 3
         
         for pedestrian in self.paths:
             for i, j in self.paths[pedestrian]:
-                grid[j, i] = pedestrian
+                grid[i, j] = pedestrian
 
         return grid.toarray()
 
