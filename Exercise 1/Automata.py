@@ -36,7 +36,9 @@ class Automata:
         for obstacle in self.obstacles:
             self.unreachableCells.append(obstacle)
 
-    def getUnreachableCells(self):
+    def getUnreachableCells(self, avoidPedestrians):
+        if (not avoidPedestrians):
+            return self.obstacles
         unreachableCells = self.unreachableCells
         for pedestrian in self.pedestrians:
             unreachableCells.append((pedestrian[1], pedestrian[2]))
@@ -44,7 +46,7 @@ class Automata:
 
     def getDimensions(self):
         return self.width, self.height
-            
+
     def getState(self):
         grid = dok_matrix((self.height, self.width), dtype=int)
 
@@ -61,9 +63,9 @@ class Automata:
         return grid.toarray()
 
     def getStateWithPaths(self):
-        grid = self.getState();
+        grid = self.getState()
         for pedestrianId in self.paths:
-            for x,y in self.paths[pedestrianId]:
+            for x, y in self.paths[pedestrianId]:
                 grid[x][y] = pedestrianId
         return grid
 
@@ -74,14 +76,14 @@ class Automata:
         grid = dok_matrix((self.height, self.width), dtype=int)
         
         for obstacle in self.obstacles:
-            grid[obstacle[0], obstacle[1]] = 2
+            grid[obstacle[1], obstacle[0]] = 2
 
         for target in self.targets:
-            grid[target[1], target[2]] = 3
+            grid[target[2], target[1]] = 3
         
         for pedestrian in self.paths:
             for i, j in self.paths[pedestrian]:
-                grid[i, j] = pedestrian
+                grid[j, i] = pedestrian
 
         return grid.toarray()
 
@@ -120,7 +122,7 @@ class Automata:
         return targetAchieved, targetToBeAchieved
 
     # Dijkstra's algoritm for flooding grid with distance values to a target cell assigning large values to unreachable cells   
-    def dijkstra(self, target, avoidObstacles): 
+    def dijkstra(self, target, avoidObstacles, avoidPedestrians):
         # Initialize distances grid with large values
         distances = full((self.width, self.height), inf)
 
@@ -139,7 +141,7 @@ class Automata:
             for neighbor in self.neighbors(current[0], current[1]):
                 # If the neighbor is not an obstacle
                 if avoidObstacles:
-                    if neighbor not in self.obstacles:
+                    if neighbor not in self.getUnreachableCells(avoidPedestrians):
                         # If the distance to the neighbor is larger than the distance to the current cell plus 1
                         if distances[current[0], current[1]] + 1 < distances[neighbor[0], neighbor[1]]:
                             # Set the distance to the neighbor to the distance to the current cell plus 1
@@ -188,7 +190,7 @@ class Automata:
                 # Save the current cell in the path
                 self.paths[pedestrianId].append((self.pedestrians[index][1], self.pedestrians[index][2]))
 
-    def basicOperator(self, avoidObstacles): # TODO: Implement avoidObstacles condition
+    def basicOperator(self, avoidObstacles, avoidPedestrians): # TODO: Implement avoidObstacles condition
         for index, pedestrian in enumerate(self.pedestrians):
             pedestrianId = pedestrian[0]
 
@@ -202,7 +204,7 @@ class Automata:
             else:
                 # Compute the distance from all neighbors in the neighborhood to the target, save the minimum distance
                 # TODO: What if there is nowhere to go ? Then it goes to (0,0) directly
-                if neighbors == self.unreachableCells:
+                if neighbors == self.getUnreachableCells(avoidPedestrians):
                     # See Notebook Cell 6 for a test case. This is for just obstacle check,
                     # not figured out if all neighbors occupied by other pedestrians.
                     self.achievedTargets[pedestrianId] = False
@@ -213,7 +215,7 @@ class Automata:
                 for neighbor in neighbors:
                     # TODO: Shouldn't we measure the distance from the midpoint of the box to the midpoint of the targets box ?
                     dist = self.euclidianDistance(neighbor, targetToBeAchieved)  # np.float64
-                    if dist < minDist and not neighbor in self.obstacles:
+                    if dist < minDist and not neighbor in self.getUnreachableCells(avoidPedestrians):
                         neighborWithMinDist = (neighbor[0], neighbor[1])
                         minDist = dist
 
@@ -223,9 +225,9 @@ class Automata:
                 # Save the current cell in the path
                 self.paths[pedestrianId].append((self.pedestrians[index][1], self.pedestrians[index][2]))
 
-    def simulate(self, operator, nSteps, avoidObstacles = True):
+    def simulate(self, operator, nSteps, avoidObstacles = True, avoidPedestrians = True):
         for step in range(nSteps):
-            operator(avoidObstacles)
+            operator(avoidObstacles, avoidPedestrians)
 
             if all(list(self.achievedTargets.values())):
                 print("Simulation finished after {} steps. All pedestrians achieved their targets.".format(step + 1))

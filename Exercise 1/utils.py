@@ -2,7 +2,7 @@ import json
 
 from matplotlib import pyplot as plt
 from matplotlib import colors
-
+import numpy as np
 
 typeToId = {
     "E": 0,
@@ -74,7 +74,9 @@ def readScenarioFromJSON(jsonFile):
     return width, height, pedestrians, targets, obstacles
 
 def visualize(state):
-    cmap = colors.ListedColormap(['white','red', 'purple', 'green'])
+    grid = np.array(state)
+    grid = np.transpose(grid, (1, 0))
+    cmap = colors.ListedColormap(['white','red', 'purple', 'green', 'black', 'orange', 'blue'])
     plt.figure(figsize=(12,12))
-    plt.pcolor(state[::-1], cmap=cmap, edgecolors='k', linewidths=1)
+    plt.pcolor(grid[::-1], cmap=cmap, edgecolors='k', linewidths=1)
     plt.show()
