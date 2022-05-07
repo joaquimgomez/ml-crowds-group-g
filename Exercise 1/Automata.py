@@ -159,7 +159,7 @@ class Automata:
         # Return the distance to the target cell
         return distances
 
-    def operatorWithCostFunction(self, avoidObstacles):
+    def operatorWithCostFunction(self, avoidObstacles, avoidPedestrians):
         # TODO: Unique grid of distance for each pedestrian or recomputed grid of distance for each pedestrian takign into account the updates already done by previous pedestrians in the iteration?
 
         for index, pedestrian in enumerate(self.pedestrians):
@@ -173,7 +173,7 @@ class Automata:
                 # Target archieved, then the pedestrian remains in the same cell and set its achieved target status to True
                 self.achievedTargets[pedestrianId] = True
             else:
-                distanceGrid = self.dijkstra(targetToBeAchieved, avoidObstacles)
+                distanceGrid = self.dijkstra(targetToBeAchieved, avoidObstacles, avoidPedestrians)
 
                 neighborWithMinDist = (0, 0)
                 minDist = np.inf  # same as inf, need to be concise with np.float64.
