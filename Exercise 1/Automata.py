@@ -50,15 +50,15 @@ class Automata:
     def getState(self):
         grid = dok_matrix((self.height, self.width), dtype=int)
 
-        # TODO: Here maybe istead of 1, we put the pedestrianId
+        # TODO: Here maybe instead of 1, we put the pedestrianId
         for pedestrian in self.pedestrians:
-            grid[pedestrian[1], pedestrian[2]] = 1
+            grid[self.height - pedestrian[2], pedestrian[1]] = 1
 
         for obstacle in self.obstacles:
-            grid[obstacle[0], obstacle[1]] = 2
+            grid[self.height - obstacle[1], obstacle[0]] = 2
 
         for target in self.targets:
-            grid[target[1], target[2]] = 3
+            grid[self.height - target[2], target[1]] = 3
 
         return grid.toarray()
 
@@ -66,7 +66,7 @@ class Automata:
         grid = self.getState()
         for pedestrianId in self.paths:
             for x, y in self.paths[pedestrianId]:
-                grid[x][y] = pedestrianId
+                grid[self.height - y][x] = pedestrianId
         return grid
 
     def getPaths(self):
@@ -76,14 +76,14 @@ class Automata:
         grid = dok_matrix((self.height, self.width), dtype=int)
         
         for obstacle in self.obstacles:
-            grid[obstacle[0], obstacle[1]] = 2
+            grid[self.height - obstacle[1], obstacle[0]] = 2
 
         for target in self.targets:
-            grid[target[1], target[2]] = 3
+            grid[self.height - target[2], target[1]] = 3
         
         for pedestrian in self.paths:
             for i, j in self.paths[pedestrian]:
-                grid[i, j] = pedestrian
+                grid[self.height - j, i] = pedestrian
 
         return grid.toarray()
 
