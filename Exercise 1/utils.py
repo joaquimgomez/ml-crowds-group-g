@@ -80,8 +80,8 @@ def readScenarioFromJSON(jsonFile):
 
     return width, height, pedestrians, targets, obstacles
 
-def visualize(state):
+def visualize(state, size = (12, 12)):
     cmap = colors.ListedColormap(['white', 'purple', 'black', 'blue'])
-    plt.figure(figsize=(12,12))
+    plt.figure(figsize=size)
     plt.pcolor(state[::-1], cmap=cmap, edgecolors='k', linewidths=1)
     plt.show()

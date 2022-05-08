@@ -227,12 +227,12 @@ class Automata:
                 print("Simulation finished after {} steps. All pedestrians achieved their targets.".format(step + 1))
                 break
     
-    def simulateAndVisualize(self, operator, nSteps, avoidObstacles=True, avoidPedestrians=True):
+    def simulateAndVisualize(self, operator, nSteps, avoidObstacles=True, avoidPedestrians=True, size = (12, 12)):
         for step in range(nSteps):
             operator(avoidObstacles, avoidPedestrians)
 
             clear_output(wait=True)
-            visualize(self.getState())
+            visualize(self.getState(), size)
             sleep(0.2)
 
             if all(list(self.achievedTargets.values())):
