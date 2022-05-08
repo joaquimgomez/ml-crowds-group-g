@@ -10,11 +10,12 @@ from os.path import isdir, exists
 
 class Automata:
     def __init__(self, config):
-        
+
         if type(config) is dict:
             self.width, self.height, self.pedestrians, self.targets, self.obstacles = readScenarioFromJSON(config)
         elif isdir(config) and exists(config):
-            self.width, self.height, self.pedestrians, self.targets, self.obstacles = readScenarioFromJSONFilePath(config)
+            self.width, self.height, self.pedestrians, self.targets, self.obstacles = readScenarioFromJSONFilePath(
+                config)
         else:
             raise "The input config is not a valid path nor a JSON/dictionary."
 
@@ -28,10 +29,10 @@ class Automata:
         for pedestrian in self.pedestrians:
             self.achievedTargets[pedestrian[0]] = False
 
-    def getDimensions(self): # OK
+    def getDimensions(self):  # OK
         return self.width, self.height
 
-    def getState(self): # OK
+    def getState(self):  # OK
         grid = dok_matrix((self.height, self.width), dtype=int)
 
         # TODO: Here maybe instead of 1, we put the pedestrianId => Then we should avoid color for obstacles and targets
@@ -46,19 +47,20 @@ class Automata:
 
         return grid.toarray()
 
-    def getStateWithPaths(self): # OK
+    def getStateWithPaths(self):  # OK
         grid = self.getState()
         for pedestrianId in self.paths:
             for x, y in self.paths[pedestrianId]:
                 grid[self.height - y - 1][x] = pedestrianId
         return grid
 
-    def getPaths(self): # OK
+    def getPaths(self):  # OK
         return self.paths
 
-    def neighbors(self, x, y): # OK
+    def neighbors(self, x, y):  # OK
 
-        neighbors = [(x-1, y-1), (x, y-1), (x+1, y-1), (x-1, y), (x+1, y), (x-1, y+1), (x, y+1), (x+1, y+1)]
+        neighbors = [(x - 1, y - 1), (x, y - 1), (x + 1, y - 1), (x - 1, y), (x + 1, y), (x - 1, y + 1), (x, y + 1),
+                     (x + 1, y + 1)]
 
         # Checker for a neighbor is not outside of the grid, only selects proper neighbors.
         def validate(coor):
@@ -71,13 +73,13 @@ class Automata:
 
         return [neighbor for neighbor in neighbors if validate(neighbor)]
 
-    def euclidianDistance(self, neighbor, target): # OK
+    def euclidianDistance(self, neighbor, target):  # OK
         neighbor = np.array(neighbor)
         target = np.array(target)
 
         return np.linalg.norm(neighbor - target)
-    
-    def isTargetInNeighborhood(self, neighbors, pedestrianId): # OK
+
+    def isTargetInNeighborhood(self, neighbors, pedestrianId):  # OK
         # Check if the target is in the neighborhood
         targetAchieved = False
         targetToBeAchieved = (None, None)
@@ -89,12 +91,12 @@ class Automata:
                 targetToBeAchieved = (target[1], target[2])
 
         return targetAchieved, targetToBeAchieved
- 
-    def getUnreachableCells(self, avoidPedestrians): # OK
+
+    def getUnreachableCells(self, avoidPedestrians):  # OK
         if (not avoidPedestrians):
             return self.obstacles
         else:
-            unreachableCells = self.obstacles
+            unreachableCells = [obstacle for obstacle in self.obstacles]
             for pedestrian in self.pedestrians:
                 unreachableCells.append((pedestrian[1], pedestrian[2]))
             return unreachableCells
@@ -124,13 +126,12 @@ class Automata:
             visited.add(currentCell)
             for neighbor in self.neighbors(currentCell[0], currentCell[1]):
                 if neighbor not in self.getUnreachableCells(avoidPedestrians) or not avoidObstacles:
-                    newDistance = distances[currentCell[1], currentCell[0]] + self.euclidianDistance(neighbor, currentCell) # 1?
+                    newDistance = distances[currentCell[1], currentCell[0]] + self.euclidianDistance(neighbor,
+                                                                                                     currentCell)  # 1?
                     if newDistance < distances[neighbor[1], neighbor[0]]:
                         distances[neighbor[1]][neighbor[0]] = newDistance
 
         return distances
-
-
 
     def operatorWithCostFunction(self, avoidObstacles, avoidPedestrians):
         for index, pedestrian in enumerate(self.pedestrians):
@@ -161,7 +162,7 @@ class Automata:
                 # Save the current cell in the path
                 self.paths[pedestrianId].append((self.pedestrians[index][1], self.pedestrians[index][2]))
 
-    def basicOperator(self, avoidObstacles, avoidPedestrians): # OK
+    def basicOperator(self, avoidObstacles, avoidPedestrians):  # OK
         for index, pedestrian in enumerate(self.pedestrians):
             pedestrianId = pedestrian[0]
 
@@ -174,7 +175,7 @@ class Automata:
                 self.achievedTargets[pedestrianId] = True
             else:
                 # Compute the distance from all neighbors in the neighborhood to the target, save the minimum distance
-                if neighbors == self.getUnreachableCells(avoidPedestrians): # TODO: What is this?
+                if neighbors == self.getUnreachableCells(avoidPedestrians):  # TODO: What is this?
                     self.achievedTargets[pedestrianId] = False
                     break
 
@@ -192,7 +193,7 @@ class Automata:
                 # Save the current cell in the path
                 self.paths[pedestrianId].append((self.pedestrians[index][1], self.pedestrians[index][2]))
 
-    def simulate(self, operator, nSteps, avoidObstacles = True, avoidPedestrians = True): # OK
+    def simulate(self, operator, nSteps, avoidObstacles=True, avoidPedestrians=True):  # OK
         for step in range(nSteps):
             operator(avoidObstacles, avoidPedestrians)
 
