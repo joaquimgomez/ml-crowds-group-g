@@ -31,13 +31,12 @@ class Automata:
         for pedestrian in self.pedestrians:
             self.achievedTargets[pedestrian[0]] = False
 
+        self.pedestriansSpeed = {}
+        self.pedestriansWaitingSteps = {}
         if len(self.pedestrians[0]) == 4:
-            self.pedestriansSpeed = {}
-            self.pedestriansSteps = {}
             for pedestrian in self.pedestrians:
                 self.pedestriansSpeed[pedestrian[0]] = pedestrian[3]
-                self.pedestriansSteps[pedestrian[0]] = 0
-
+                self.pedestriansWaitingSteps[pedestrian[0]] = 0
 
     def getDimensions(self):  # OK
         return self.width, self.height
@@ -143,6 +142,17 @@ class Automata:
 
         return distances
 
+    def canGoToTheNextCell(self, pedestrianId):
+        if len(self.pedestriansSpeed) > 0 and len(self.pedestriansWaitingSteps) > 0:
+            if self.pedestriansWaitingSteps[pedestrianId] >= self.pedestriansSpeed[pedestrianId]:
+                self.pedestriansWaitingSteps[pedestrianId] = 0
+                
+                # Update speed
+
+                return True
+            return False
+        return True
+
     def operatorWithCostFunction(self, avoidObstacles, avoidPedestrians):
         if len(self.targets) == 1:
             distanceGrid = self.dijkstra((self.targets[0][1], self.targets[0][2]), avoidObstacles, avoidPedestrians)
@@ -158,22 +168,25 @@ class Automata:
                 # Target archieved, then the pedestrian remains in the same cell and set its achieved target status to True
                 self.achievedTargets[pedestrianId] = True
             else:
-                if len(self.targets) > 1:
-                    distanceGrid = self.dijkstra(targetToBeAchieved, avoidObstacles, avoidPedestrians)
+                if self.canGoToTheNextCell(pedestrianId):
+                    if len(self.targets) > 1:
+                        distanceGrid = self.dijkstra(targetToBeAchieved, avoidObstacles, avoidPedestrians)
 
-                neighborWithMinDist = (0, 0)
-                minDist = np.inf  # same as inf, need to be concise with np.float64.
-                for neighbor in neighbors:
-                    dist = distanceGrid[neighbor[1]][neighbor[0]]
-                    if dist < minDist and neighbor not in self.getUnreachableCells(avoidPedestrians):
-                        neighborWithMinDist = (neighbor[0], neighbor[1])
-                        minDist = dist
-                
-                # Change the cell not occupied by the pedestrian
-                self.pedestrians[index] = (pedestrianId, neighborWithMinDist[0], neighborWithMinDist[1])
+                    neighborWithMinDist = (0, 0)
+                    minDist = np.inf  # same as inf, need to be concise with np.float64.
+                    for neighbor in neighbors:
+                        dist = distanceGrid[neighbor[1]][neighbor[0]]
+                        if dist < minDist and neighbor not in self.getUnreachableCells(avoidPedestrians):
+                            neighborWithMinDist = (neighbor[0], neighbor[1])
+                            minDist = dist
+                    
+                    # Change the cell not occupied by the pedestrian
+                    self.pedestrians[index] = (pedestrianId, neighborWithMinDist[0], neighborWithMinDist[1])
 
-                # Save the current cell in the path
-                self.paths[pedestrianId].append((self.pedestrians[index][1], self.pedestrians[index][2]))
+                    # Save the current cell in the path
+                    self.paths[pedestrianId].append((self.pedestrians[index][1], self.pedestrians[index][2]))
+                else:
+                    self.pedestriansWaitingSteps[pedestrianId] += 1
 
     def basicOperator(self, avoidObstacles, avoidPedestrians):  # OK
         for index, pedestrian in enumerate(self.pedestrians):

@@ -35,7 +35,11 @@ def readScenarioFromJSONFilePath(jsonFilePath):
     # Convert arrays of arrays to arrays of tuples for a better accessions of type "tuple IN list of tuples"
     pedestrians = []
     for pedestrian in scenarioDescription["pedestrians"]:
-        pedestrians.append((pedestrian[0], pedestrian[1], pedestrian[2]))
+        if len(pedestrian) == 3:
+            pedestrians.append((pedestrian[0], pedestrian[1], pedestrian[2]))
+        elif len(pedestrian) == 4:
+            pedestrians.append((pedestrian[0], pedestrian[1], pedestrian[2], pedestrian[3]))
+
     
     obstacles = []
     for obstacle in scenarioDescription["obstacles"]:
@@ -61,7 +65,10 @@ def readScenarioFromJSON(jsonFile):
     # Convert arrays of arrays to arrays of tuples for a better accessions of type "tuple IN list of tuples"
     pedestrians = []
     for pedestrian in scenarioDescription["pedestrians"]:
-        pedestrians.append((pedestrian[0], pedestrian[1], pedestrian[2]))
+        if len(pedestrian) == 3:
+            pedestrians.append((pedestrian[0], pedestrian[1], pedestrian[2]))
+        elif len(pedestrian) == 4:
+            pedestrians.append((pedestrian[0], pedestrian[1], pedestrian[2], pedestrian[3]))
 
     obstacles = []
     for obstacle in scenarioDescription["obstacles"]:
