@@ -115,20 +115,22 @@ class Automata:
             currentMinDist = inf
             for x in range(self.width):
                 for y in range(self.height):
-                    if (x, y) not in visited and distances[x][y] < currentMinDist:
+                    if (x, y) not in visited and distances[y][x] < currentMinDist:
                         currentCell = (x, y)
-                        currentMinDist = distances[x][y]
-            
+                        currentMinDist = distances[y][x]
+
             if currentCell is None:
                 break
             visited.add(currentCell)
             for neighbor in self.neighbors(currentCell[0], currentCell[1]):
                 if neighbor not in self.getUnreachableCells(avoidPedestrians):
-                    newDistance = distances[currentCell[0], currentCell[1]] + self.euclidianDistance(neighbor, currentCell) # 1?
-                    if newDistance < distances[neighbor[0], neighbor[1]]:
-                        distances[neighbor[0]][neighbor[1]] = newDistance
+                    newDistance = distances[currentCell[1], currentCell[0]] + self.euclidianDistance(neighbor, currentCell) # 1?
+                    if newDistance < distances[neighbor[1], neighbor[0]]:
+                        distances[neighbor[1]][neighbor[0]] = newDistance
 
         return distances
+
+
 
     def operatorWithCostFunction(self, avoidObstacles, avoidPedestrians):
         for index, pedestrian in enumerate(self.pedestrians):
