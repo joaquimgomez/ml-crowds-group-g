@@ -66,7 +66,7 @@ class Automata:
         def validate(coor):
             if coor[0] < 0 or coor[1] < 0:
                 return False
-            elif coor[0] >= self.height or coor[1] >= self.width:
+            elif coor[1] >= self.height or coor[0] >= self.width:
                 return False
             else:
                 return True
@@ -150,7 +150,6 @@ class Automata:
                 neighborWithMinDist = (0, 0)
                 minDist = np.inf  # same as inf, need to be concise with np.float64.
                 for neighbor in neighbors:
-                    # TODO: Shouldn't we measure the distance from the midpoint of the box to the midpoint of the targets box ?
                     dist = distanceGrid[neighbor[1]][neighbor[0]]
                     if dist < minDist and neighbor not in self.getUnreachableCells(avoidPedestrians):
                         neighborWithMinDist = (neighbor[0], neighbor[1])
