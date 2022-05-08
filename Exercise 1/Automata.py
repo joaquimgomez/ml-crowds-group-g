@@ -1,4 +1,4 @@
-from utils import readScenarioFromJSON, readScenarioFromJSONFilePath
+from utils import readScenarioFromJSON, readScenarioFromJSONFilePath, visualize
 
 from scipy.sparse import dok_matrix
 from numpy import full
@@ -7,6 +7,8 @@ from math import inf
 
 from os.path import isdir, exists
 
+from time import sleep
+from IPython.display import clear_output
 
 class Automata:
     def __init__(self, config):
@@ -28,6 +30,14 @@ class Automata:
         self.achievedTargets = {}
         for pedestrian in self.pedestrians:
             self.achievedTargets[pedestrian[0]] = False
+
+        if len(self.pedestrians[0]) == 4:
+            self.pedestriansSpeed = {}
+            self.pedestriansSteps = {}
+            for pedestrian in self.pedestrians:
+                self.pedestriansSpeed[pedestrian[0]] = pedestrian[3]
+                self.pedestriansSteps[pedestrian[0]] = 0
+
 
     def getDimensions(self):  # OK
         return self.width, self.height
@@ -199,6 +209,18 @@ class Automata:
     def simulate(self, operator, nSteps, avoidObstacles=True, avoidPedestrians=True):  # OK
         for step in range(nSteps):
             operator(avoidObstacles, avoidPedestrians)
+
+            if all(list(self.achievedTargets.values())):
+                print("Simulation finished after {} steps. All pedestrians achieved their targets.".format(step + 1))
+                break
+    
+    def simulateAndVisualize(self, operator, nSteps, avoidObstacles=True, avoidPedestrians=True):
+        for step in range(nSteps):
+            operator(avoidObstacles, avoidPedestrians)
+
+            clear_output(wait=True)
+            visualize(self.getState())
+            sleep(0.2)
 
             if all(list(self.achievedTargets.values())):
                 print("Simulation finished after {} steps. All pedestrians achieved their targets.".format(step + 1))
