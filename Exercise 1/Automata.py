@@ -123,7 +123,7 @@ class Automata:
                 break
             visited.add(currentCell)
             for neighbor in self.neighbors(currentCell[0], currentCell[1]):
-                if neighbor not in self.getUnreachableCells(avoidPedestrians):
+                if neighbor not in self.getUnreachableCells(avoidPedestrians) or not avoidObstacles:
                     newDistance = distances[currentCell[1], currentCell[0]] + self.euclidianDistance(neighbor, currentCell) # 1?
                     if newDistance < distances[neighbor[1], neighbor[0]]:
                         distances[neighbor[1]][neighbor[0]] = newDistance
@@ -151,7 +151,7 @@ class Automata:
                 for neighbor in neighbors:
                     # TODO: Shouldn't we measure the distance from the midpoint of the box to the midpoint of the targets box ?
                     dist = distanceGrid[neighbor[1]][neighbor[0]]
-                    if dist < minDist:
+                    if dist < minDist and neighbor not in self.getUnreachableCells(avoidPedestrians):
                         neighborWithMinDist = (neighbor[0], neighbor[1])
                         minDist = dist
                 
