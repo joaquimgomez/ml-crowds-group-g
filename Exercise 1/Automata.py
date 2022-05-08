@@ -104,7 +104,7 @@ class Automata:
     # Dijkstra's algorithm with a target cell in a grid
     def dijkstra(self, target, avoidObstacles, avoidPedestrians):
         # Initialize distances grid with large values
-        distances = full((self.width, self.height), inf)
+        distances = full((self.height, self.width), inf)
 
         # Set target cell to 0
         distances[target[1], target[0]] = 0
