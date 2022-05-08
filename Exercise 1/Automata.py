@@ -51,7 +51,7 @@ class Automata:
         grid = self.getState()
         for pedestrianId in self.paths:
             for x, y in self.paths[pedestrianId]:
-                grid[self.height - y - 1][x] = pedestrianId
+                grid[self.height - y - 1][x] = 1
         return grid
 
     def getPaths(self):  # OK
@@ -134,6 +134,9 @@ class Automata:
         return distances
 
     def operatorWithCostFunction(self, avoidObstacles, avoidPedestrians):
+        if len(self.targets) == 1:
+            distanceGrid = self.dijkstra((self.targets[0][1], self.targets[0][2]), avoidObstacles, avoidPedestrians)
+        
         for index, pedestrian in enumerate(self.pedestrians):
             pedestrianId = pedestrian[0]
 
@@ -145,7 +148,8 @@ class Automata:
                 # Target archieved, then the pedestrian remains in the same cell and set its achieved target status to True
                 self.achievedTargets[pedestrianId] = True
             else:
-                distanceGrid = self.dijkstra(targetToBeAchieved, avoidObstacles, avoidPedestrians)
+                if len(self.targets) > 1:
+                    distanceGrid = self.dijkstra(targetToBeAchieved, avoidObstacles, avoidPedestrians)
 
                 neighborWithMinDist = (0, 0)
                 minDist = np.inf  # same as inf, need to be concise with np.float64.
