@@ -33,13 +33,15 @@ class Automata:
 
         self.pedestriansSpeed = {}
         self.availableSteps = {}
-        # self.pedestriansWaitingSteps = {}
+        self.times = {}
         if len(self.pedestrians[0]) == 4:
             for pedestrian in self.pedestrians:
                 self.availableSteps[pedestrian[0]] = 0.0
                 self.pedestriansSpeed[pedestrian[0]] = pedestrian[3]
+                self.times[pedestrian[0]] = 0
 
-        self.end = False
+
+
 
     def getDimensions(self):  # OK
         return self.width, self.height
@@ -311,6 +313,12 @@ class Automata:
         for i, steps in enumerate(self.availableSteps):
             self.availableSteps[i+1] = self.availableSteps[i+1] + self.pedestriansSpeed[i+1]
 
+    def tik_tok(self):
+        for pedestrian in self.pedestrians:
+            if (not self.achievedTargets[pedestrian[0]]):
+                self.times[pedestrian[0]] += 1
+
+
 
     
     def simulateAndVisualize(self, operator, nSteps, avoidObstacles=True, avoidPedestrians=True, size = (12, 12)):
@@ -341,5 +349,7 @@ class Automata:
                 clear_output(wait=True)
                 visualize(self.getState(), size)
                 sleep(0.1)
+
+            self.tik_tok()
 
         print("Simulation finished after {} seconds.".format(seconds))
