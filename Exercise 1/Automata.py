@@ -14,9 +14,9 @@ class Automata:
     def __init__(self, config):
 
         if type(config) is dict:
-            self.width, self.height, self.pedestrians, self.targets, self.obstacles = readScenarioFromJSON(config)
+            self.width, self.height, self.pedestrians, self.targets, self.obstacles, self.step = readScenarioFromJSON(config)
         elif isdir(config) and exists(config):
-            self.width, self.height, self.pedestrians, self.targets, self.obstacles = readScenarioFromJSONFilePath(
+            self.width, self.height, self.pedestrians, self.targets, self.obstacles, self.step = readScenarioFromJSONFilePath(
                 config)
         else:
             raise "The input config is not a valid path nor a JSON/dictionary."
@@ -32,11 +32,14 @@ class Automata:
             self.achievedTargets[pedestrian[0]] = False
 
         self.pedestriansSpeed = {}
-        self.pedestriansWaitingSteps = {}
+        self.availableSteps = {}
+        # self.pedestriansWaitingSteps = {}
         if len(self.pedestrians[0]) == 4:
             for pedestrian in self.pedestrians:
+                self.availableSteps[pedestrian[0]] = 0.0
                 self.pedestriansSpeed[pedestrian[0]] = pedestrian[3]
-                self.pedestriansWaitingSteps[pedestrian[0]] = 0
+
+        self.end = False
 
     def getDimensions(self):  # OK
         return self.width, self.height
@@ -107,7 +110,8 @@ class Automata:
         else:
             unreachableCells = [obstacle for obstacle in self.obstacles]
             for pedestrian in self.pedestrians:
-                unreachableCells.append((pedestrian[1], pedestrian[2]))
+                if (not self.achievedTargets[pedestrian[0]]):
+                    unreachableCells.append((pedestrian[1], pedestrian[2]))
             return unreachableCells
 
     # Dijkstra's algorithm with a target cell in a grid
@@ -188,6 +192,60 @@ class Automata:
                 else:
                     self.pedestriansWaitingSteps[pedestrianId] += 1
 
+
+
+
+    def hasStepsAvailable(self, pedestrianId):
+        if (self.availableSteps[pedestrianId] >= self.step):
+            self.availableSteps[pedestrianId] = self.availableSteps[pedestrianId] - self.step
+            return True
+        return False
+
+    def operatorWithCostFunction_Angelos(self, avoidObstacles, avoidPedestrians):
+
+        if len(self.targets) == 1:
+            distanceGrid = self.dijkstra((self.targets[0][1], self.targets[0][2]), avoidObstacles, avoidPedestrians)
+
+        for index, pedestrian in enumerate(self.pedestrians):
+
+            if (not self.hasStepsAvailable(pedestrian[0]) or self.achievedTargets[pedestrian[0]]):
+                continue
+
+            pedestrianId = pedestrian[0]
+
+            neighbors = self.neighbors(pedestrian[1], pedestrian[2])
+
+            targetAchieved, targetToBeAchieved = self.isTargetInNeighborhood(neighbors, pedestrianId)
+
+            if targetAchieved:
+                # Target archieved, then the pedestrian remains in the same cell and set its achieved target status to True
+                self.achievedTargets[pedestrianId] = True
+                for target in self.targets:
+                    if pedestrianId in target[0]:
+                        self.pedestrians[index] = (pedestrianId, target[1], target[2])
+
+            else:
+                if len(self.targets) > 1:
+                    distanceGrid = self.dijkstra(targetToBeAchieved, avoidObstacles, avoidPedestrians)
+
+                neighborWithMinDist = None
+                minDist = np.inf  # same as inf, need to be concise with np.float64.
+                for neighbor in neighbors:
+                    dist = distanceGrid[neighbor[1]][neighbor[0]]
+                    if dist < minDist and neighbor not in self.getUnreachableCells(avoidPedestrians):
+                        neighborWithMinDist = (neighbor[0], neighbor[1])
+                        minDist = dist
+
+                if neighborWithMinDist is None:
+                    continue
+
+                # Change the cell not occupied by the pedestrian
+                self.pedestrians[index] = (pedestrianId, neighborWithMinDist[0], neighborWithMinDist[1])
+
+                # Save the current cell in the path
+                self.paths[pedestrianId].append((self.pedestrians[index][1], self.pedestrians[index][2]))
+
+
     def basicOperator(self, avoidObstacles, avoidPedestrians):  # OK
         for index, pedestrian in enumerate(self.pedestrians):
             pedestrianId = pedestrian[0]
@@ -226,6 +284,34 @@ class Automata:
             if all(list(self.achievedTargets.values())):
                 print("Simulation finished after {} steps. All pedestrians achieved their targets.".format(step + 1))
                 break
+
+
+    def simulate2(self, operator, seconds, avoidObstacles=True, avoidPedestrians=True):  # OK
+
+        for i in range(seconds):
+
+            if all(list(self.achievedTargets.values())):
+                print("Simulation finished after {} seconds. All pedestrians achieved their targets.".format(seconds + 1))
+                break
+
+            print("DOING STEP NO: ", i)
+            # update available steps because 1 second has passed
+            self.update_available_steps()
+
+            while (self.someone_can_move()): # available_steps_for_somebody = E at least 1 pedestrian that can perform at least one step
+                operator(avoidObstacles, avoidPedestrians)
+
+    def someone_can_move(self):
+        for i, step in enumerate(self.availableSteps):
+            if (self.availableSteps[i+1] >= self.step):
+                return True
+        return False
+
+    def update_available_steps(self):
+        for i, steps in enumerate(self.availableSteps):
+            self.availableSteps[i+1] = self.availableSteps[i+1] + self.pedestriansSpeed[i+1]
+
+
     
     def simulateAndVisualize(self, operator, nSteps, avoidObstacles=True, avoidPedestrians=True, size = (12, 12)):
         for step in range(nSteps):
@@ -238,3 +324,22 @@ class Automata:
             if all(list(self.achievedTargets.values())):
                 print("Simulation finished after {} steps. All pedestrians achieved their targets.".format(step + 1))
                 break
+
+    def simulateAndVisualize2(self, operator, seconds, avoidObstacles=True, avoidPedestrians=True, size = (12, 12)):
+        for i in range(seconds):
+
+            if all(list(self.achievedTargets.values())):
+                print(
+                    "Simulation finished after {} seconds. All pedestrians achieved their targets.".format(seconds + 1))
+                return
+
+            # update available steps because 1 second has passed
+            self.update_available_steps()
+
+            while (self.someone_can_move()):  # available_steps_for_somebody = E at least 1 pedestrian that can perform at least one step
+                operator(avoidObstacles, avoidPedestrians)
+                clear_output(wait=True)
+                visualize(self.getState(), size)
+                sleep(0.1)
+
+        print("Simulation finished after {} seconds.".format(seconds))

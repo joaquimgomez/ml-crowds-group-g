@@ -49,7 +49,9 @@ def readScenarioFromJSONFilePath(jsonFilePath):
     for target in scenarioDescription["targets"]:
         targets.append((target[0], target[1], target[2]))
 
-    return width, height, pedestrians, targets, obstacles
+    step = scenarioDescription["step"]
+
+    return width, height, pedestrians, targets, obstacles, step
 
 
 def readScenarioFromJSON(jsonFile):
@@ -78,7 +80,9 @@ def readScenarioFromJSON(jsonFile):
     for target in scenarioDescription["targets"]:
         targets.append((target[0], target[1], target[2]))
 
-    return width, height, pedestrians, targets, obstacles
+    step = scenarioDescription["step"]
+
+    return width, height, pedestrians, targets, obstacles, step
 
 def visualize(state, size = (12, 12)):
     cmap = colors.ListedColormap(['white', 'purple', 'black', 'blue'])
