@@ -147,7 +147,7 @@ class Automata:
             if self.pedestriansWaitingSteps[pedestrianId] >= self.pedestriansSpeed[pedestrianId]:
                 self.pedestriansWaitingSteps[pedestrianId] = 0
                 
-                # Update speed
+                # Update speed ?
 
                 return True
             return False
