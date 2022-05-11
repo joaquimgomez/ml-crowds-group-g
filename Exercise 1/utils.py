@@ -91,25 +91,3 @@ def visualize(state, size = (12, 12)):
     plt.figure(figsize=size)
     plt.pcolor(state[::-1], cmap=cmap, edgecolors='k', linewidths=1)
     plt.show()
-
-def plotTask5Test4(generations, automata):
-    """Plots the plot required for the Test 4 of the Taks 5
-
-    Args:
-        generations (tuple): Tuple with the vectors of IDs for the different generations
-        automata (Automata): Automata with the simulation data
-    """
-    means = [0.]*6
-    
-    for index, generation in enumerate(generations):
-        for pedestrian in automata.pedestrians:
-            if (pedestrian[0] in generation):
-                means[index] += (0.5*len(automata.paths[pedestrian[0]])/(automata.times[pedestrian[0]]))
-                
-    for index, generation in enumerate(generations):
-        means[index] = means[index] / len(generation)
-    
-    plt.figure()
-    plt.plot([i for i in range(20, len(generations)*10+20, 10)], means, 'ro')
-    plt.xlabel('Generation')
-    plt.ylabel('Mean speed')
