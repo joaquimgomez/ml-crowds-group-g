@@ -2,6 +2,7 @@
   "name" : "Task1-RiMEA-Scenario-1",
   "description" : "",
   "release" : "2.1",
+  "commithash" : "3c91da4fac38488ca306bbd04e8ccb4dcfec4ab6",
   "processWriters" : {
     "files" : [ {
       "type" : "org.vadere.simulator.projects.dataprocessing.outputfile.EventtimePedestrianIdOutputFile",
@@ -102,7 +103,7 @@
       "digitsPerCoordinate" : 2,
       "useFixedSeed" : true,
       "fixedSeed" : 108396508879196161,
-      "simulationSeed" : 0
+      "simulationSeed" : 108396508879196161
     },
     "attributesPsychology" : {
       "usePsychologyLayer" : false,
@@ -163,7 +164,7 @@
       "measurementAreas" : [ ],
       "stairs" : [ ],
       "targets" : [ {
-        "id" : 1,
+        "id" : 6,
         "absorbing" : true,
         "shape" : {
           "x" : 41.2,
