@@ -6,11 +6,14 @@ import subprocess
 import json
 
 # Modify "targetIds", "position" and "velocity"
+"""
+Dictionary with a pedestrian schema.
+"""
 pedestrianSchema = {
     "attributes" : {
         "id" : 1,
         "radius" : 0.2,
-        "densityDependentSpeed" : false,
+        "densityDependentSpeed" : False,
         "speedDistributionMean" : 1.34,
         "speedDistributionStandardDeviation" : 0.26,
         "minimumSpeed" : 0.5,
@@ -21,10 +24,10 @@ pedestrianSchema = {
         "walkingDirectionCalculation" : "BY_TARGET_CENTER",
         "walkingDirectionSameIfAngleLessOrEqual" : 45.0
     },
-    "source" : null,
+    "source" : None,
     "targetIds" : [ None ],
     "nextTargetListIndex" : 0,
-    "isCurrentTargetAnAgent" : false,
+    "isCurrentTargetAnAgent" : False,
     "position" : {
         "x" : None,
         "y" : None
@@ -36,13 +39,13 @@ pedestrianSchema = {
     "freeFlowSpeed" : 1.2131908770225284,
     "followers" : [ ],
     "idAsTarget" : -1,
-    "isChild" : false,
-    "isLikelyInjured" : false,
+    "isChild" : False,
+    "isLikelyInjured" : False,
     "psychologyStatus" : {
-        "mostImportantStimulus" : null,
+        "mostImportantStimulus" : None,
         "threatMemory" : {
         "allThreats" : [ ],
-        "latestThreatUnhandled" : false
+        "latestThreatUnhandled" : False
         },
         "selfCategory" : "TARGET_ORIENTED",
         "groupMembership" : "OUT_GROUP",
@@ -53,19 +56,29 @@ pedestrianSchema = {
         "perceivedStimuli" : [ ],
         "nextPerceivedStimuli" : [ ]
     },
-    "healthStatus" : null,
-    "infectionStatus" : null,
+    "healthStatus" : None,
+    "infectionStatus" : None,
     "groupIds" : [ ],
     "groupSizes" : [ ],
     "agentsInGroup" : [ ],
     "trajectory" : {
         "footSteps" : [ ]
     },
-    "modelPedestrianMap" : null,
+    "modelPedestrianMap" : None,
     "type" : "PEDESTRIAN"
 }
 
 def addPedestrians(scenario, pedestriansStr):
+    """For a given scenario dictionary returns a modified scenario with the pedestrians passed as a
+    string. The string must be of the form: "[ (targetId, positionX, positionY, velocityX, velocityY), ... ]"
+
+    Args:
+        scenario (dict): Dictionary (from a JSON) with the scenario.
+        pedestriansStr (_type_): String with the pedestrians to be added in the expected format.
+
+    Returns:
+        dict: Dictionary with the scenario after adding the pedestrians.
+    """
     pedestriansToAdd = list(eval(pedestriansStr))
 
     editedScenario = scenario
@@ -86,13 +99,30 @@ def addPedestrians(scenario, pedestriansStr):
     return editedScenario
 
 def create_parser():
-    parser = argparse.ArgumentParser(dexcription='This program is used to modify a Vadere scenario file.')
+    """Creates and returns a parser with the options:
+    - "file": to specify the scenario file path
+    - "addpedestrians": a string with the pedestrians to be added in the scenario. Should have the format: "[ (targetId, positionX, positionY, velocityX, velocityY), ... ]"
+    - "store": If set, the scenario should be stored in a new file
+    - "execute": If set, the scenario should be executed
+
+    Returns:
+        parser: The parser with the options.
+    """
+    parser = argparse.ArgumentParser(description='This program is used to modify a Vadere scenario file.')
     parser.add_argument("file", type=str)
     parser.add_argument("--addpedestrians", type=str)
     parser.add_argument("--store", action="store_true")
-    parser.add_argument("--execute", action="executre_true")
+    parser.add_argument("--execute", action="store_true")
+
+    return parser
 
 def main(args):
+    """Receives the arguments and depending on the options, modifies the scenario file, saves the file 
+    and/or executes it.
+
+    Args:
+        args (dict): Dictionary with the input arguments.
+    """
     with open(args.file) as json_file:
         try:
             scenario = json.load(json_file)
