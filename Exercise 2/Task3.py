@@ -1,18 +1,89 @@
 import argparse
-import os
 import tempfile
 
 import subprocess
 
 import json
 
+# Modify "targetIds", "position" and "velocity"
+pedestrianSchema = {
+    "attributes" : {
+        "id" : 1,
+        "radius" : 0.2,
+        "densityDependentSpeed" : false,
+        "speedDistributionMean" : 1.34,
+        "speedDistributionStandardDeviation" : 0.26,
+        "minimumSpeed" : 0.5,
+        "maximumSpeed" : 2.2,
+        "acceleration" : 2.0,
+        "footstepHistorySize" : 4,
+        "searchRadius" : 1.0,
+        "walkingDirectionCalculation" : "BY_TARGET_CENTER",
+        "walkingDirectionSameIfAngleLessOrEqual" : 45.0
+    },
+    "source" : null,
+    "targetIds" : [ None ],
+    "nextTargetListIndex" : 0,
+    "isCurrentTargetAnAgent" : false,
+    "position" : {
+        "x" : None,
+        "y" : None
+    },
+    "velocity" : {
+        "x" : None,
+        "y" : None
+    },
+    "freeFlowSpeed" : 1.2131908770225284,
+    "followers" : [ ],
+    "idAsTarget" : -1,
+    "isChild" : false,
+    "isLikelyInjured" : false,
+    "psychologyStatus" : {
+        "mostImportantStimulus" : null,
+        "threatMemory" : {
+        "allThreats" : [ ],
+        "latestThreatUnhandled" : false
+        },
+        "selfCategory" : "TARGET_ORIENTED",
+        "groupMembership" : "OUT_GROUP",
+        "knowledgeBase" : {
+        "knowledge" : [ ],
+        "informationState" : "NO_INFORMATION"
+        },
+        "perceivedStimuli" : [ ],
+        "nextPerceivedStimuli" : [ ]
+    },
+    "healthStatus" : null,
+    "infectionStatus" : null,
+    "groupIds" : [ ],
+    "groupSizes" : [ ],
+    "agentsInGroup" : [ ],
+    "trajectory" : {
+        "footSteps" : [ ]
+    },
+    "modelPedestrianMap" : null,
+    "type" : "PEDESTRIAN"
+}
 
 def addPedestrians(scenario, pedestriansStr):
     pedestriansToAdd = list(eval(pedestriansStr))
 
+    editedScenario = scenario
+    pedestrians = scenario["scenario"]["topography"]["dynamicElements"]
     for pedestrian in pedestriansToAdd:
-        # TODO: Add pedestrians to the scenario
-        pass
+        newPedestrian = pedestrianSchema.copy()
+        
+        newPedestrian["targetIds"] = [pedestrian[0]]
+        newPedestrian["position"]["x"] = pedestrian[1]
+        newPedestrian["position"]["y"] = pedestrian[2]
+        newPedestrian["velocity"]["x"] = pedestrian[3]
+        newPedestrian["velocity"]["y"] = pedestrian[4]
+
+        pedestrians.append(newPedestrian)
+
+    editedScenario["scenario"]["topography"]["dynamicElements"] = pedestrians
+
+    return editedScenario
 
 def create_parser():
     parser = argparse.ArgumentParser(dexcription='This program is used to modify a Vadere scenario file.')
