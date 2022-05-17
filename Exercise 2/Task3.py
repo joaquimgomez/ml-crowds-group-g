@@ -7,9 +7,17 @@ import subprocess
 import json
 
 
+def addPedestrians(scenario, pedestriansStr):
+    pedestriansToAdd = list(eval(pedestriansStr))
+
+    for pedestrian in pedestriansToAdd:
+        # TODO: Add pedestrians to the scenario
+        pass
+
 def create_parser():
     parser = argparse.ArgumentParser(dexcription='This program is used to modify a Vadere scenario file.')
     parser.add_argument("file", type=str)
+    parser.add_argument("--addpedestrians", type=str)
     parser.add_argument("--store", action="store_true")
     parser.add_argument("--execute", action="executre_true")
 
@@ -21,16 +29,8 @@ def main(args):
             print("This is not a valid JSON file.")
             return None
 
-
-    """
-    
-
-    The changes to the file go here.
-
-
-
-
-    """
+    if args.addpedestrians is not None:
+        scenario = addPedestrians(scenario, args.addpedestrians)
 
     newScenarioPath = ""
 
