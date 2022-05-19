@@ -151,7 +151,7 @@
       "measurementAreas" : [ ],
       "stairs" : [ ],
       "targets" : [ {
-        "id" : 6,
+        "id" : 1,
         "absorbing" : true,
         "shape" : {
           "x" : 41.2,

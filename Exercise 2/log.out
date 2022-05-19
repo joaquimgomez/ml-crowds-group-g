@@ -1,0 +1,35 @@
+17:30:20,713   INFO STDOUTERR:15 - Redirect StdOut and StdErr
+17:30:20,731   INFO ScenarioRunSubCommand:52 - Created output directory: /home/linuxlite/Escritorio/Crowds/ml-crowds-group-g/Exercise 2/"./output/"
+17:30:21,330  ERROR JsonMigrationAssistant:78 - Error converting File: Unexpected end-of-input within/between Object entries
+ at [Source: (String)"{"name": "Task1-RiMEA-Scenario-6", "description": "", "release": "2.1", "processWriters": {"files": [{"type": "org.vadere.simulator.projects.dataprocessing.outputfile.EventtimePedestrianIdOutputFile", "filename": "postvis.traj", "processors": [1, 2]}, {"type": "org.vadere.simulator.projects.dataprocessing.outputfile.TimestepPedestrianIdOverlapOutputFile", "filename": "overlaps.csv", "processors": [3]}, {"type": "org.vadere.simulator.projects.dataprocessing.outputfile.NoDataKeyOutputFile", "filen"[truncated 24037 chars]; line: 1, column: 49075]
+17:30:21,337 STDERR STDOUTERR:32 - org.vadere.simulator.projects.migration.MigrationException: Could not create Json representationUnexpected end-of-input within/between Object entries
+ at [Source: (String)"{"name": "Task1-RiMEA-Scenario-6", "description": "", "release": "2.1", "processWriters": {"files": [{"type": "org.vadere.simulator.projects.dataprocessing.outputfile.EventtimePedestrianIdOutputFile", "filename": "postvis.traj", "processors": [1, 2]}, {"type": "org.vadere.simulator.projects.dataprocessing.outputfile.TimestepPedestrianIdOverlapOutputFile", "filename": "overlaps.csv", "processors": [3]}, {"type": "org.vadere.simulator.projects.dataprocessing.outputfile.NoDataKeyOutputFile", "filen"[truncated 24037 chars]; line: 1, column: 49075]
+17:30:21,338 STDERR STDOUTERR:32 - 	at org.vadere.simulator.projects.migration.jsontranformation.JsonMigrationAssistant.migrateScenarioFile(JsonMigrationAssistant.java:79)
+17:30:21,339 STDERR STDOUTERR:32 - 	at org.vadere.simulator.projects.io.IOVadere.fromJson(IOVadere.java:34)
+17:30:21,339 STDERR STDOUTERR:32 - 	at org.vadere.simulator.entrypoints.ScenarioFactory.createScenarioWithScenarioFilePath(ScenarioFactory.java:40)
+17:30:21,340 STDERR STDOUTERR:32 - 	at org.vadere.simulator.entrypoints.cmd.commands.ScenarioRunSubCommand.run(ScenarioRunSubCommand.java:66)
+17:30:21,345 STDERR STDOUTERR:32 - 	at org.vadere.simulator.entrypoints.cmd.VadereConsole.main(VadereConsole.java:40)
+17:30:21,401 STDERR STDOUTERR:32 - com.fasterxml.jackson.core.io.JsonEOFException: Unexpected end-of-input within/between Object entries
+ at [Source: (String)"{"name": "Task1-RiMEA-Scenario-6", "description": "", "release": "2.1", "processWriters": {"files": [{"type": "org.vadere.simulator.projects.dataprocessing.outputfile.EventtimePedestrianIdOutputFile", "filename": "postvis.traj", "processors": [1, 2]}, {"type": "org.vadere.simulator.projects.dataprocessing.outputfile.TimestepPedestrianIdOverlapOutputFile", "filename": "overlaps.csv", "processors": [3]}, {"type": "org.vadere.simulator.projects.dataprocessing.outputfile.NoDataKeyOutputFile", "filen"[truncated 24037 chars]; line: 1, column: 49075]
+17:30:21,411 STDERR STDOUTERR:32 - 	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportInvalidEOF(ParserMinimalBase.java:594)
+17:30:21,412 STDERR STDOUTERR:32 - 	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._skipColon2(ReaderBasedJsonParser.java:2214)
+17:30:21,418 STDERR STDOUTERR:32 - 	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._skipColon(ReaderBasedJsonParser.java:2129)
+17:30:21,418 STDERR STDOUTERR:32 - 	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextFieldName(ReaderBasedJsonParser.java:910)
+17:30:21,419 STDERR STDOUTERR:32 - 	at com.fasterxml.jackson.databind.deser.std.BaseNodeDeserializer.deserializeObject(JsonNodeDeserializer.java:247)
+17:30:21,421 STDERR STDOUTERR:32 - 	at com.fasterxml.jackson.databind.deser.std.BaseNodeDeserializer.deserializeObject(JsonNodeDeserializer.java:255)
+17:30:21,421 STDERR STDOUTERR:32 - 	at com.fasterxml.jackson.databind.deser.std.BaseNodeDeserializer.deserializeArray(JsonNodeDeserializer.java:434)
+17:30:21,422 STDERR STDOUTERR:32 - 	at com.fasterxml.jackson.databind.deser.std.BaseNodeDeserializer.deserializeObject(JsonNodeDeserializer.java:258)
+17:30:21,423 STDERR STDOUTERR:32 - 	at com.fasterxml.jackson.databind.deser.std.BaseNodeDeserializer.deserializeObject(JsonNodeDeserializer.java:255)
+17:30:21,423 STDERR STDOUTERR:32 - 	at com.fasterxml.jackson.databind.deser.std.BaseNodeDeserializer.deserializeObject(JsonNodeDeserializer.java:255)
+17:30:21,424 STDERR STDOUTERR:32 - 	at com.fasterxml.jackson.databind.deser.std.JsonNodeDeserializer.deserialize(JsonNodeDeserializer.java:68)
+17:30:21,427 STDERR STDOUTERR:32 - 	at com.fasterxml.jackson.databind.deser.std.JsonNodeDeserializer.deserialize(JsonNodeDeserializer.java:15)
+17:30:21,453 STDERR STDOUTERR:32 - 	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4056)
+17:30:21,454 STDERR STDOUTERR:32 - 	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:2551)
+17:30:21,454 STDERR STDOUTERR:32 - 	at org.vadere.state.util.StateJsonConverter.readTree(StateJsonConverter.java:482)
+17:30:21,461 STDERR STDOUTERR:32 - 	at org.vadere.simulator.projects.io.JsonConverter.deserializeScenarioRunManager(JsonConverter.java:23)
+17:30:21,463 STDERR STDOUTERR:32 - 	at org.vadere.simulator.projects.io.IOVadere.fromJson(IOVadere.java:47)
+17:30:21,472 STDERR STDOUTERR:32 - 	at org.vadere.simulator.entrypoints.ScenarioFactory.createScenarioWithScenarioFilePath(ScenarioFactory.java:40)
+17:30:21,481 STDERR STDOUTERR:32 - 	at org.vadere.simulator.entrypoints.cmd.commands.ScenarioRunSubCommand.run(ScenarioRunSubCommand.java:66)
+17:30:21,483 STDERR STDOUTERR:32 - 	at org.vadere.simulator.entrypoints.cmd.VadereConsole.main(VadereConsole.java:40)
+17:30:21,484  ERROR ScenarioRunSubCommand:75 - com.fasterxml.jackson.core.io.JsonEOFException: Unexpected end-of-input within/between Object entries
+ at [Source: (String)"{"name": "Task1-RiMEA-Scenario-6", "description": "", "release": "2.1", "processWriters": {"files": [{"type": "org.vadere.simulator.projects.dataprocessing.outputfile.EventtimePedestrianIdOutputFile", "filename": "postvis.traj", "processors": [1, 2]}, {"type": "org.vadere.simulator.projects.dataprocessing.outputfile.TimestepPedestrianIdOverlapOutputFile", "filename": "overlaps.csv", "processors": [3]}, {"type": "org.vadere.simulator.projects.dataprocessing.outputfile.NoDataKeyOutputFile", "filen"[truncated 24037 chars]; line: 1, column: 49075]
