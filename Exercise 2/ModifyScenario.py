@@ -133,10 +133,12 @@ def main(args):
     if args.addpedestrians is not None:
         scenario = addPedestrians(scenario, args.addpedestrians)
 
+    scenario["name"] = scenario["name"] + "_modified"
+
     newScenarioPath = ""
 
     if args.store:
-        newScenarioPath = "newScenario.scenario"
+        newScenarioPath = scenario["name"] + ".scenario"
         with open(newScenarioPath, "w") as outfile:
             json.dump(scenario, outfile)
 
