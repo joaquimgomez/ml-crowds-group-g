@@ -1,0 +1,66 @@
+13:04:43,612   INFO STDOUTERR:15 - Redirect StdOut and StdErr
+13:04:43,617   INFO VadereApplication:25 - starting Vadere GUI...
+13:04:43,699   INFO VadereConfig:66 - Use config file from path /home/angelos/.config/vadere.conf
+13:04:47,134   INFO IOVadere:72 - read project: /home/angelos/Desktop/ML Simulation/ml-crowds-group-g/Exercise 2/Task4/vadere-master/Scenarios/OptimizationTests/TestNelderMead/vadere.project
+13:04:47,167   INFO IOVadere:82 - analyzed scenario files.
+13:04:47,504   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Scenario_1>
+13:04:47,509   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+13:04:47,694   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Scenario_1>
+13:04:47,694   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+13:04:47,736   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Testing>
+13:04:47,736   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+13:04:47,752   INFO IOVadere:103 - analyzed: 6, migrated: 0, upToDate: 6, notMigratable: 0
+13:04:47,754   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Scenario_1>
+13:04:47,754   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+13:04:47,777   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Scenario_1>
+13:04:47,777   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+13:04:47,798   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Testing>
+13:04:47,799   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+13:04:47,813   INFO IOVadere:108 - project loaded: Test of Nelder Mead Optimiziation with reference Scenarios
+13:04:47,877   INFO ActionLoadProject:113 - refreshed output table - 2
+13:04:47,887   INFO ProjectView:587 - selected scenario 'Scenario_1'
+13:04:48,633   INFO DataProcessingView:97 - switch to gui view
+13:04:49,191   INFO ProjectView:593 - repainted output table
+13:04:49,192   INFO ActionLoadProject:117 - selected the first scenario
+13:04:49,213   INFO ActionLoadProject:124 - project 'Test of Nelder Mead Optimiziation with reference Scenarios' loaded.
+13:04:49,284 STDERR STDOUTERR:32 - [LWJGL] Failed to load a library. Possible solutions:
+	a) Install the library or the driver that provides the library.
+	b) Ensure that the library is accessible from the system library paths.
+13:04:49,285 STDERR STDOUTERR:32 - [LWJGL] Enable debug mode with -Dorg.lwjgl.util.Debug=true for better diagnostics.
+13:04:49,285 STDERR STDOUTERR:32 - [LWJGL] Enable the SharedLibraryLoader debug mode with -Dorg.lwjgl.util.DebugLoader=true for better diagnostics.
+13:04:49,286   WARN CLUtils:94 - No OpenCL support: Failed to locate library: libOpenCL.so
+13:05:05,222   INFO ScenarioCache:85 - Cache search location: /home/angelos/Desktop/ML Simulation/ml-crowds-group-g/Exercise 2/Task4/vadere-master/Scenarios/OptimizationTests/TestNelderMead/scenarios/__cache__
+13:05:05,227   INFO ScenarioRun:147 - Initializing scenario: Scenario_1...
+13:05:05,240   INFO ScenarioRun:128 - scenario context initialized.
+13:05:05,243   INFO ScenarioRun:229 - no mesh Scenario_1.poly was found.
+13:05:05,245   INFO ScenarioRun:229 - no mesh Scenario_1_background.poly was found.
+13:05:05,264   WARN Version:80 - No version control commit hash available!
+13:05:05,300   INFO PotentialFieldDistancesBruteForce:49 - solve floor field (PotentialFieldDistancesBruteForce)
+13:05:05,305   INFO PotentialFieldDistancesBruteForce:106 - Progress:  0% -> 0/10201 [points]
+13:05:05,341   INFO PotentialFieldDistancesBruteForce:106 - Progress: 10% -> 1021/10201 [points]
+13:05:05,355   INFO PotentialFieldDistancesBruteForce:106 - Progress: 20% -> 2041/10201 [points]
+13:05:05,365   INFO PotentialFieldDistancesBruteForce:106 - Progress: 30% -> 3061/10201 [points]
+13:05:05,375   INFO PotentialFieldDistancesBruteForce:106 - Progress: 40% -> 4081/10201 [points]
+13:05:05,387   INFO PotentialFieldDistancesBruteForce:106 - Progress: 50% -> 5101/10201 [points]
+13:05:05,402   INFO PotentialFieldDistancesBruteForce:106 - Progress: 60% -> 6121/10201 [points]
+13:05:05,427   INFO PotentialFieldDistancesBruteForce:106 - Progress: 70% -> 7141/10201 [points]
+13:05:05,436   INFO PotentialFieldDistancesBruteForce:106 - Progress: 80% -> 8161/10201 [points]
+13:05:05,446   INFO PotentialFieldDistancesBruteForce:106 - Progress: 90% -> 9181/10201 [points]
+13:05:05,457   INFO PotentialFieldDistancesBruteForce:96 - floor field initialization time:154[ms]
+13:05:05,461   INFO Topography:428 - Set PedestrianIdCount to start value: 5
+13:05:05,508   INFO EikonalSolverDefaultProvider:23 - floor field initialization time:35[ms]
+13:05:05,526   INFO Simulation:278 - preLoop finished.
+13:05:06,600   INFO OutputFile:109 - Absolute file name/home/angelos/Desktop/ML Simulation/ml-crowds-group-g/Exercise 2/Task4/vadere-master/Scenarios/OptimizationTests/TestNelderMead/output/Scenario_1_2022-05-21_13-05-05.226/postvis.traj
+13:05:06,606   INFO OutputFile:109 - Absolute file name/home/angelos/Desktop/ML Simulation/ml-crowds-group-g/Exercise 2/Task4/vadere-master/Scenarios/OptimizationTests/TestNelderMead/output/Scenario_1_2022-05-21_13-05-05.226/overlaps.csv
+13:05:06,610   INFO OutputFile:109 - Absolute file name/home/angelos/Desktop/ML Simulation/ml-crowds-group-g/Exercise 2/Task4/vadere-master/Scenarios/OptimizationTests/TestNelderMead/output/Scenario_1_2022-05-21_13-05-05.226/overlapCount.txt
+13:05:06,611   INFO Simulation:252 - Finished writing all output files
+13:05:06,615   INFO Simulation:255 - Post-loop: before waitForTraci
+13:05:06,615   INFO Simulation:262 - Post-loop: finished.
+13:05:06,616   INFO ScenarioRun:207 - Simulation run finished.
+13:05:06,621   INFO ProjectView:141 - scenario Scenario_1 finished
+13:05:06,623   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Scenario_1>
+13:05:06,625   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+13:05:06,642   INFO VadereProject:302 - SimulationResult{scenarioName='"Scenario_1", nr_overlaps (PID4)=0, state='"SimulationRun completed"}
+13:05:06,646   INFO ProjectView:587 - selected scenario 'Scenario_1'
+13:05:06,647   INFO ScenarioRun:265 - Simulation of scenario Scenario_1 finished.
+13:05:06,747   INFO ProjectView:593 - repainted output table

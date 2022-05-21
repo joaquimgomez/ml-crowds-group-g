@@ -8,7 +8,7 @@ import org.vadere.state.attributes.Attributes;
 
 
 /* Attribute information about SIR Model */
-public class AttributesSIRG {
+public class AttributesSIRG extends Attributes {
 
     private int infectionsAtStart = 0;
 
