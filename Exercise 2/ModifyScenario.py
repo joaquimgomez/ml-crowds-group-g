@@ -1,7 +1,9 @@
 import argparse
-import tempfile
+
+import random
 
 import subprocess
+import os
 
 import json
 
@@ -86,6 +88,7 @@ def addPedestrians(scenario, pedestriansStr):
     for pedestrian in pedestriansToAdd:
         newPedestrian = pedestrianSchema.copy()
 
+        newPedestrian["attributes"]["id"] = random.randint(pedestrian[0], pedestrian[0] + 1000)
         newPedestrian["targetIds"] = [pedestrian[0]]
         newPedestrian["position"]["x"] = pedestrian[1]
         newPedestrian["position"]["y"] = pedestrian[2]
@@ -135,24 +138,25 @@ def main(args):
 
     scenario["name"] = scenario["name"] + "_modified"
 
-    newScenarioPath = ""
+    newScenarioPath = scenario["name"] + ".scenario"
 
     if args.store:
-        newScenarioPath = scenario["name"] + ".scenario"
         with open(newScenarioPath, "w") as outfile:
             json.dump(scenario, outfile)
 
     if args.execute:
         if not args.store:
-            newScenarioPath = tempfile.NamedTemporaryFile(mode="w+")
+            newScenarioPath = open(newScenarioPath, mode="w+")
             json.dump(scenario, newScenarioPath)
+            newScenarioPath.close()
+            os.chmod(newScenarioPath.name, 0o777)
 
         subprocess.call(['java', '-jar', 'vadere-console.jar', 'scenario-run',
-                         '--scenario-file', newScenarioPath.name,
-                         '--output-dir="./output/"'])
+                         '--scenario-file', '"{}"'.format(newScenarioPath.name),
+                         '--output-dir=output/'])
 
         if not args.store:
-            newScenarioPath.close()
+            os.remove(newScenarioPath.name)
 
 if __name__ == '__main__':
     parser = create_parser()
