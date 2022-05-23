@@ -1,5 +1,5 @@
 {
-  "name" : "Scenario_1",
+  "name" : "Task1-Chicken-Test",
   "description" : "",
   "release" : "2.1",
   "commithash" : "No version control commit hash available!",
@@ -103,7 +103,7 @@
       "digitsPerCoordinate" : 2,
       "useFixedSeed" : true,
       "fixedSeed" : -1877126449149620402,
-      "simulationSeed" : 0
+      "simulationSeed" : -1877126449149620402
     },
     "attributesPsychology" : {
       "usePsychologyLayer" : false,

@@ -1,0 +1,8 @@
+Info:Analyzing scenario file scenarios/New_scenario
+Info:<New_scenario> Transform to: 1.13
+Info:<New_scenario> Transform to: 1.14
+Info:<New_scenario> Transform to: 1.15
+Info:<New_scenario> Transform to: 1.16
+Info:<New_scenario> Transform to: 2.0
+Info:<New_scenario> Transform to: 2.1
+ERROR:!> Can't migrate the scenario to latest version, removed it from the directory (Error while serializing and deserializing scenario) If you can fix this problem manually, do so and then remove .nonmigratable from the file in the legacy-directory and move it back into the scenarios-directory, it will be checked again when the GUI restarts.

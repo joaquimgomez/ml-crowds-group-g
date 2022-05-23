@@ -16,6 +16,7 @@ import org.vadere.state.attributes.scenario.AttributesAgent;
 import org.vadere.state.scenario.DynamicElementContainer;
 import org.vadere.state.scenario.Pedestrian;
 import org.vadere.state.scenario.Topography;
+import org.vadere.util.geometry.LinkedCellsGrid;
 
 import java.util.*;
 
@@ -32,6 +33,9 @@ public class SIRGroupModel extends AbstractGroupModel<SIRGroup> {
     private Topography topography;
     private IPotentialFieldTarget potentialFieldTarget;
     private int totalInfected = 0;
+    private double secondCounter = 0;
+
+    private double previousTimeStep = 0;
 
     public SIRGroupModel() {
         this.groupsById = new LinkedHashMap<>();
@@ -181,31 +185,43 @@ public class SIRGroupModel extends AbstractGroupModel<SIRGroup> {
     public void postLoop(final double simTimeInSec) {
     }
 
+
+
     @Override
     public void update(final double simTimeInSec) {
-        // check the positions of all pedestrians and switch groups to INFECTED (or REMOVED).
         DynamicElementContainer<Pedestrian> c = topography.getPedestrianDynamicElements();
-        // TODO: For my side, we need to have two Pedestrian type list like structures.\n
-        //  One for pedestrians and one for neighbors of pedestrians. We need to modify these
-        //  for loops to keep track and change the pedestrian's current state by looking its neighbors.
+        LinkedCellsGrid<Pedestrian> neighbors;
+        List<Pedestrian> n;
 
-        if (c.getElements().size() > 0) {
-            for(Pedestrian p : c.getElements()) {
-                // loop over neighbors and set infected if we are close
-                for(Pedestrian p_neighbor : c.getElements()) {
-                    if(p == p_neighbor || getGroup(p_neighbor).getID() != SIRType.ID_INFECTED.ordinal())
-                        continue;
-                    double dist = p.getPosition().distance(p_neighbor.getPosition());
-                    if (dist < attributesSIRG.getInfectionMaxDistance() &&
-                            this.random.nextDouble() < attributesSIRG.getInfectionRate()) {
-                        SIRGroup g = getGroup(p);
-                        if (g.getID() == SIRType.ID_SUSCEPTIBLE.ordinal()) {
+        if (this.secondCounter < 1) {
+            this.secondCounter = this.secondCounter + (simTimeInSec - previousTimeStep);
+        } else {
+            if (c.getElements().size() > 0) {
+                for (Pedestrian p : c.getElements()) {
+                    neighbors = topography.getSpatialMap(Pedestrian.class);
+                    n = neighbors.getObjects(p.getPosition(), attributesSIRG.getInfectionMaxDistance());
+                    if (getGroup(p).getID() == SIRType.ID_INFECTED.ordinal()) {
+                        if (this.random.nextDouble() < attributesSIRG.getRecoverRate()) {
                             elementRemoved(p);
-                            assignToGroup(p, SIRType.ID_INFECTED.ordinal());
+                            assignToGroup(p, SIRType.ID_REMOVED.ordinal());
+                        }
+                    } else if (getGroup(p).getID() == SIRType.ID_REMOVED.ordinal()) {
+                        continue;
+                    } else {
+                        for (Pedestrian p_neighbor : n) {
+                            if ((p == p_neighbor) || (getGroup(p_neighbor).getID() != SIRType.ID_INFECTED.ordinal()) || (getGroup(p_neighbor).getID() == SIRType.ID_REMOVED.ordinal()))
+                                continue;
+                            if (this.random.nextDouble() < attributesSIRG.getInfectionRate()) {
+                                elementRemoved(p);
+                                assignToGroup(p, SIRType.ID_INFECTED.ordinal());
+                            }
                         }
                     }
                 }
             }
+            this.secondCounter = 0;
         }
+        this.previousTimeStep = simTimeInSec;
     }
+
 }

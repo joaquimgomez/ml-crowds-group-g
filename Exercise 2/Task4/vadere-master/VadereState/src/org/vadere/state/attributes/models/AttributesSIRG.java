@@ -16,6 +16,8 @@ public class AttributesSIRG extends Attributes {
 
     private double infectionMaxDistance = 1;
 
+    private double recoverRate = 0.002;
+
     // TODO : We need to add the recovery rate later.
 
     /* Getter methods for private attributes */
@@ -30,6 +32,10 @@ public class AttributesSIRG extends Attributes {
 
     public double getInfectionMaxDistance() {
         return infectionMaxDistance;
+    }
+
+    public double getRecoverRate() {
+        return recoverRate;
     }
 
     // TODO : We^ll have recovered/removed getter method later.
