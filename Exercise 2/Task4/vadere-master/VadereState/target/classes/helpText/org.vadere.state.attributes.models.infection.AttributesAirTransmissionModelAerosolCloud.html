@@ -8,27 +8,10 @@ are directly linked to the respiratory cycle defined in <a href='/helpText/rel_/
 </p>
 
 <hr>
-<h2> Field: absorptionRate</h2>
-<p>
-Describes how much pathogen carried by aerosols is absorbed per inhalation; is to be reduced if aerosol
-inhalation is mitigated, e.g. by masks.
-Unit: 1 / inhalation (can also be interpreted as m^3 / inhalation)
-</p>
-
-<hr>
 <h2> Field: halfLife</h2>
 <p>
 Describes exponential decay of pathogen load within an aerosol cloud;
 Unit: seconds
-</p>
-
-<hr>
-<h2> Field: initialPathogenLoad</h2>
-<p>
-Describes the amount of pathogen in an aerosol cloud immediately after exhalation.
-Indirectly describes the infectious pedestrian's infectiousness; is to be reduced if aerosol emission
-is mitigated, e.g. by masks.
-Unit: particles / exhalation
 </p>
 
 <hr>
@@ -55,5 +38,22 @@ Describes dispersion depending on agents, i.e. the spatial spread of aerosol clo
 to the dispersion of the cloud: deltaRadius = pedestrianSpeed * pedestrianDispersionWeight
 This increases the radius of aerosol clouds equally in all directions (three-dimensional).
 Unit: 1
+</p>
+
+<hr>
+<h2> Field: initialPathogenLoad</h2>
+<p>
+Describes the amount of pathogen in an aerosol cloud immediately after exhalation.
+Indirectly describes the infectious pedestrian's infectiousness; is to be reduced if aerosol emission
+is mitigated, e.g. by masks.
+Unit: particles / exhalation
+</p>
+
+<hr>
+<h2> Field: absorptionRate</h2>
+<p>
+Describes how much pathogen carried by aerosols is absorbed per inhalation; is to be reduced if aerosol
+inhalation is mitigated, e.g. by masks.
+Unit: 1 / inhalation (can also be interpreted as m^3 / inhalation)
 </p>
 

@@ -29,6 +29,17 @@ public class FootStepGroupIDProcessor extends DataProcessor<EventtimePedestrianI
 				});
 			});
 		});
+
+		getModel(state, SIRGroupModel.class).ifPresent(m -> { // find SIRGroupModel
+			SIRGroupModel model = (SIRGroupModel)m;
+			model.getGroupsById().forEach((gId, group) -> {	// for each group
+				group.getMembers().forEach(ped -> {			// for each member in group
+					ped.getTrajectory().getFootSteps().forEach(fs -> {
+						this.putValue(new EventtimePedestrianIdKey(Math.round(fs.getStartTime()*10.0)/10.0, ped.getId()), gId);
+					});
+				});
+			});
+		});
 	}
 
 	public String[] toStrings(EventtimePedestrianIdKey key){

@@ -3,11 +3,15 @@
 <p>---</p>
 
 <hr>
-<h2> Field: personIdOffset</h2>
+<h2> Field: compartmentIndex</h2>
 <p>
-Offset to add to the pedestrian ID in order to prevent duplicate person
-IDs from different log event processors.
+The compartment to observe. Index 0 and the last index denote
+half-compartments which should not be observed.
 </p>
+
+<hr>
+<h2> Field: surveyId</h2>
+<p>---</p>
 
 <hr>
 <h2> Field: firstLogEventId</h2>
@@ -17,13 +21,9 @@ event IDs from different log event processors.
 </p>
 
 <hr>
-<h2> Field: surveyId</h2>
-<p>---</p>
-
-<hr>
-<h2> Field: compartmentIndex</h2>
+<h2> Field: personIdOffset</h2>
 <p>
-The compartment to observe. Index 0 and the last index denote
-half-compartments which should not be observed.
+Offset to add to the pedestrian ID in order to prevent duplicate person
+IDs from different log event processors.
 </p>
 

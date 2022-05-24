@@ -101,7 +101,6 @@ public abstract class SimulationModel<T extends DefaultSimulationConfig> extends
 
 	public Color getGroupColor(@NotNull final  Pedestrian ped) {
 		if (ped.getGroupIds().isEmpty() || (!ped.getGroupSizes().isEmpty() && ped.getGroupSizes().getFirst() == 1)) {
-			System.out.println("Pedestrian have the default color !!!!");
 			return config.getPedestrianDefaultColor();
 		}
 
@@ -109,29 +108,18 @@ public abstract class SimulationModel<T extends DefaultSimulationConfig> extends
 		Color c = colorMap.get(groupId);
 
 		if(groupId == 0) {
-			c = new Color(210,0,0);
-			colorMap.put(groupId, c);
+			c = new Color(255,0,0);
+		} else if (groupId == 1) {
+			c = new Color(0,255,0);
+		} else if (groupId == 2) {
+			c = new Color(0,0,255);
 		}
 
-		else if (groupId == 1) {
-			c = new Color(0,160,0);
-			colorMap.put(groupId, c);
+		if (c == null) {
+			c = new Color(Color.HSBtoRGB(random.nextFloat(), 1f, 0.75f));
 		}
 
-		else if (groupId == 2) {
-			c = new Color(0,0,160);
-			colorMap.put(groupId, c);
-		}
-
-		else {
-			if (c == null) {
-				c = new Color(Color.HSBtoRGB(random.nextFloat(), 1f, 0.75f));
-				colorMap.put(groupId, c);
-			}
-		}
-
-		System.out.println("Pedestrians have different colors");
-		System.out.println(c.toString());
+		colorMap.put(groupId, c);
 
 		return c;
 	}

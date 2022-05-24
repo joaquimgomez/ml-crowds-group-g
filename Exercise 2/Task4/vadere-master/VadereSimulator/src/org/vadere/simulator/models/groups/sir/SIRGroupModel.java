@@ -201,10 +201,10 @@ public class SIRGroupModel extends AbstractGroupModel<SIRGroup> {
                     neighbors = topography.getSpatialMap(Pedestrian.class);
                     n = neighbors.getObjects(p.getPosition(), attributesSIRG.getInfectionMaxDistance());
                     if (getGroup(p).getID() == SIRType.ID_INFECTED.ordinal()) {
-                        if (this.random.nextDouble() < attributesSIRG.getRecoverRate()) {
+                        /*if (this.random.nextDouble() < attributesSIRG.getRecoverRate()) {
                             elementRemoved(p);
                             assignToGroup(p, SIRType.ID_REMOVED.ordinal());
-                        }
+                        }*/
                     } else if (getGroup(p).getID() == SIRType.ID_REMOVED.ordinal()) {
                         continue;
                     } else {
