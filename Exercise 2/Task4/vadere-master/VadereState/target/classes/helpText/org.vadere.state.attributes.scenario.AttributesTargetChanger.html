@@ -5,24 +5,6 @@ Attributes of "TargetChanger" object, used by "TargetChangerController" during s
 </p>
 
 <hr>
-<h2> Field: nextTarget</h2>
-<p>
-If "nextTargetIsPedestrian == true", then randomly select a pedestrian which
-is heading to the given target as new target. Otherwise, use the given target
-id as "normal" target id.
-</p>
-
-<hr>
-<h2> Field: id</h2>
-<p>---</p>
-
-<hr>
-<h2> Field: reachDistance</h2>
-<p>
-Within this distance, pedestrians have reached this area.
-</p>
-
-<hr>
 <h2> Field: changeAlgorithmType</h2>
 <p>
 Select TargetChangerAlgorithm <a href='/helpText/org.vadere.state.scenario.TargetChangerAlgorithmType.html' class='class_link'>TargetChangerAlgorithmType</a>:
@@ -49,6 +31,26 @@ add the element to the new target list and repeat for all elements in <span clas
 </p>
 
 <hr>
+<h2> Field: shape</h2>
+<p>
+Shape and position.
+</p>
+
+<hr>
+<h2> Field: reachDistance</h2>
+<p>
+Within this distance, pedestrians have reached this area.
+</p>
+
+<hr>
+<h2> Field: nextTarget</h2>
+<p>
+If "nextTargetIsPedestrian == true", then randomly select a pedestrian which
+is heading to the given target as new target. Otherwise, use the given target
+id as "normal" target id.
+</p>
+
+<hr>
 <h2> Field: probabilityToChangeTarget</h2>
 <p>
 Change target of a given pedestrian only with a certain probability between
@@ -56,8 +58,6 @@ Change target of a given pedestrian only with a certain probability between
 </p>
 
 <hr>
-<h2> Field: shape</h2>
-<p>
-Shape and position.
-</p>
+<h2> Field: id</h2>
+<p>---</p>
 

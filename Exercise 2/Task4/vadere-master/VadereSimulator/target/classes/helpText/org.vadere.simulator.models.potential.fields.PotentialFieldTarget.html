@@ -5,10 +5,9 @@
 </p>
 
 <hr>
-<h2> Field: eikonalSolvers</h2>
+<h2> Field: domain</h2>
 <p>
-Stores all potential fields which represent to a target (targetId).
-This Map has to be filled by classes extending this class.
+the topography of the running simulation.
 </p>
 
 <hr>
@@ -22,15 +21,10 @@ configuration of the potential fields.
 <p>---</p>
 
 <hr>
-<h2> Field: lastUpdateTimestamp</h2>
+<h2> Field: eikonalSolvers</h2>
 <p>
-the simulation time in seconds in which the last update was performed.
-</p>
-
-<hr>
-<h2> Field: potentialFieldsNeedUpdate</h2>
-<p>
-false if and only if there exits no dynamic potential field.
+Stores all potential fields which represent to a target (targetId).
+This Map has to be filled by classes extending this class.
 </p>
 
 <hr>
@@ -40,8 +34,14 @@ configuration of the agents.
 </p>
 
 <hr>
-<h2> Field: domain</h2>
+<h2> Field: potentialFieldsNeedUpdate</h2>
 <p>
-the topography of the running simulation.
+false if and only if there exits no dynamic potential field.
+</p>
+
+<hr>
+<h2> Field: lastUpdateTimestamp</h2>
+<p>
+the simulation time in seconds in which the last update was performed.
 </p>
 

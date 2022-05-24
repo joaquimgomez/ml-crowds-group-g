@@ -6,11 +6,9 @@ import org.vadere.simulator.models.Model;
 import org.vadere.simulator.models.groups.AbstractGroupModel;
 import org.vadere.simulator.models.groups.Group;
 import org.vadere.simulator.models.groups.GroupSizeDeterminator;
-import org.vadere.simulator.models.groups.cgm.CentroidGroup;
 import org.vadere.simulator.models.potential.fields.IPotentialFieldTarget;
 import org.vadere.simulator.projects.Domain;
 import org.vadere.state.attributes.Attributes;
-import org.vadere.simulator.models.groups.sir.SIRGroup;
 import org.vadere.state.attributes.models.AttributesSIRG;
 import org.vadere.state.attributes.scenario.AttributesAgent;
 import org.vadere.state.scenario.DynamicElementContainer;
@@ -33,9 +31,8 @@ public class SIRGroupModel extends AbstractGroupModel<SIRGroup> {
     private Topography topography;
     private IPotentialFieldTarget potentialFieldTarget;
     private int totalInfected = 0;
-    private double secondCounter = 0;
-
-    private double previousTimeStep = 0;
+    private double accumulatedPeriodsOfSimTimeInSec = 0;
+    private double previousSimTimeInSec = 0;
 
     public SIRGroupModel() {
         this.groupsById = new LinkedHashMap<>();
@@ -185,43 +182,52 @@ public class SIRGroupModel extends AbstractGroupModel<SIRGroup> {
     public void postLoop(final double simTimeInSec) {
     }
 
-
-
     @Override
     public void update(final double simTimeInSec) {
+        // Check the positions of all pedestrians and switch groups to INFECTED (or REMOVED).
         DynamicElementContainer<Pedestrian> c = topography.getPedestrianDynamicElements();
-        LinkedCellsGrid<Pedestrian> neighbors;
-        List<Pedestrian> n;
+        LinkedCellsGrid<Pedestrian> grid;
+        List<Pedestrian> neighbors;
 
-        if (this.secondCounter < 1) {
-            this.secondCounter = this.secondCounter + (simTimeInSec - previousTimeStep);
+        if (this.accumulatedPeriodsOfSimTimeInSec < 1) {
+            this.accumulatedPeriodsOfSimTimeInSec += (simTimeInSec - previousSimTimeInSec);
         } else {
             if (c.getElements().size() > 0) {
                 for (Pedestrian p : c.getElements()) {
-                    neighbors = topography.getSpatialMap(Pedestrian.class);
-                    n = neighbors.getObjects(p.getPosition(), attributesSIRG.getInfectionMaxDistance());
-                    if (getGroup(p).getID() == SIRType.ID_INFECTED.ordinal()) {
-                        /*if (this.random.nextDouble() < attributesSIRG.getRecoverRate()) {
+                    // Loop over neighbors and set infected if we are close
+                    grid = topography.getSpatialMap(Pedestrian.class);
+                    // Get the neighbors around p.getPosition() using a radius attributesSIRG.getInfectionMaxDistance()
+                    neighbors = grid.getObjects(p.getPosition(), attributesSIRG.getInfectionMaxDistance());
+
+                    if (getGroup(p).getID() == SIRType.ID_REMOVED.ordinal()) {
+                        // If the pedestrian is already removed, do nothing
+                        continue;
+                    } else if (getGroup(p).getID() == SIRType.ID_INFECTED.ordinal()) {
+                        // If the pedestrian is infected, gets randomly removed (if enabled)
+                        if (attributesSIRG.getRecoveryEnabled() && this.random.nextDouble() < attributesSIRG.getRecoveryRate()) {
                             elementRemoved(p);
                             assignToGroup(p, SIRType.ID_REMOVED.ordinal());
-                        }*/
-                    } else if (getGroup(p).getID() == SIRType.ID_REMOVED.ordinal()) {
-                        continue;
+                        }
                     } else {
-                        for (Pedestrian p_neighbor : n) {
+                        // If not removed nor infected (i.e., susceptible), gets randomly infected
+                        for (Pedestrian p_neighbor : neighbors) {
                             if ((p == p_neighbor) || (getGroup(p_neighbor).getID() != SIRType.ID_INFECTED.ordinal()) || (getGroup(p_neighbor).getID() == SIRType.ID_REMOVED.ordinal()))
+                                // If it is the same pedestrian, or not infected or removed, then continue
                                 continue;
-                            if (this.random.nextDouble() < attributesSIRG.getInfectionRate()) {
-                                elementRemoved(p);
-                                assignToGroup(p, SIRType.ID_INFECTED.ordinal());
+                            else {
+                                if (this.random.nextDouble() < attributesSIRG.getInfectionRate()) {
+                                    // Gets randomly infected
+                                    elementRemoved(p);
+                                    assignToGroup(p, SIRType.ID_INFECTED.ordinal());
+                                }
                             }
                         }
                     }
                 }
             }
-            this.secondCounter = 0;
+            this.accumulatedPeriodsOfSimTimeInSec = 0;
         }
-        this.previousTimeStep = simTimeInSec;
+        this.previousSimTimeInSec = simTimeInSec;
     }
 
 }
