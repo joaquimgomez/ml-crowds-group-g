@@ -1,0 +1,497 @@
+14:47:55,546   INFO STDOUTERR:15 - Redirect StdOut and StdErr
+14:47:55,551   INFO VadereApplication:25 - starting Vadere GUI...
+14:47:55,592   INFO VadereConfig:66 - Use config file from path C:\Users\caner\.config\vadere.conf
+14:48:15,026   INFO IOVadere:72 - read project: C:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\vadere.project
+14:48:15,125   INFO IOVadere:82 - analyzed scenario files.
+14:48:15,578   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:48:15,579   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:16,288   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:48:16,288   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:16,533   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:48:16,533   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:16,653   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:48:16,653   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:16,776   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:48:16,777   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:18,944   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:48:18,945   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:19,287   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:48:19,287   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:19,456   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:48:19,456   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:22,498   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:48:22,498   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:23,049   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:48:23,049   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:23,200   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-Chicken-Test>
+14:48:23,201   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:23,211   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-RiMEA-Scenario-6_modified>
+14:48:23,211   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:23,232   INFO IOVadere:103 - analyzed: 24, migrated: 0, upToDate: 24, notMigratable: 0
+14:48:23,234   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:48:23,234   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:23,355   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:48:23,356   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:23,466   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:48:23,466   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:23,562   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:48:23,563   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:23,672   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:48:23,672   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:25,691   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:48:25,692   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:25,986   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:48:25,986   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:26,121   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:48:26,122   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:29,214   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:48:29,215   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:29,778   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:48:29,778   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:29,904   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-Chicken-Test>
+14:48:29,905   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:29,912   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-RiMEA-Scenario-6_modified>
+14:48:29,912   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:48:29,929   INFO IOVadere:108 - project loaded: Exercise2
+14:48:29,936   INFO ActionLoadProject:113 - refreshed output table - 2
+14:48:29,940   INFO ProjectView:587 - selected scenario 'New_scenario_4.1'
+14:48:30,299   INFO DataProcessingView:103 - switch to expert view
+14:48:30,664   INFO ProjectView:593 - repainted output table
+14:48:30,665   INFO ActionLoadProject:117 - selected the first scenario
+14:48:30,687   INFO ActionLoadProject:124 - project 'Exercise2' loaded.
+14:48:54,365   INFO ScenarioCache:85 - Cache search location: C:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\scenarios\__cache__
+14:48:54,369   INFO ScenarioRun:147 - Initializing scenario: New_scenario_4.1...
+14:48:54,392   INFO ScenarioRun:128 - scenario context initialized.
+14:48:54,397   INFO ScenarioRun:229 - no mesh New_scenario_4.1.poly was found.
+14:48:54,398   INFO ScenarioRun:229 - no mesh New_scenario_4.1_background.poly was found.
+14:48:54,434   WARN Version:80 - No version control commit hash available!
+14:48:54,554   INFO PotentialFieldDistancesBruteForce:49 - solve floor field (PotentialFieldDistancesBruteForce)
+14:48:54,563   INFO PotentialFieldDistancesBruteForce:106 - Progress:  0% -> 0/90601 [points]
+14:48:54,677   INFO PotentialFieldDistancesBruteForce:106 - Progress: 10% -> 9061/90601 [points]
+14:48:54,745   INFO PotentialFieldDistancesBruteForce:106 - Progress: 20% -> 18121/90601 [points]
+14:48:54,814   INFO PotentialFieldDistancesBruteForce:106 - Progress: 30% -> 27181/90601 [points]
+14:48:54,839   INFO PotentialFieldDistancesBruteForce:106 - Progress: 40% -> 36241/90601 [points]
+14:48:54,859   INFO PotentialFieldDistancesBruteForce:106 - Progress: 50% -> 45301/90601 [points]
+14:48:54,880   INFO PotentialFieldDistancesBruteForce:106 - Progress: 60% -> 54361/90601 [points]
+14:48:54,900   INFO PotentialFieldDistancesBruteForce:106 - Progress: 70% -> 63421/90601 [points]
+14:48:54,931   INFO PotentialFieldDistancesBruteForce:106 - Progress: 80% -> 72481/90601 [points]
+14:48:54,952   INFO PotentialFieldDistancesBruteForce:106 - Progress: 90% -> 81541/90601 [points]
+14:48:54,976   INFO PotentialFieldDistancesBruteForce:96 - floor field initialization time:418[ms]
+14:48:54,983   INFO Topography:428 - Set PedestrianIdCount to start value: 1
+14:48:55,255   INFO EikonalSolverDefaultProvider:23 - floor field initialization time:222[ms]
+14:48:55,363   INFO EikonalSolverDefaultProvider:23 - floor field initialization time:91[ms]
+14:48:55,476   INFO EikonalSolverDefaultProvider:23 - floor field initialization time:101[ms]
+14:48:55,494   INFO Simulation:278 - preLoop finished.
+14:49:08,546   INFO OutputFile:109 - Absolute file nameC:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\output\New_scenario_4.1_2022-05-24_14-48-54.368\postvis.traj
+14:49:08,789   INFO OutputFile:109 - Absolute file nameC:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\output\New_scenario_4.1_2022-05-24_14-48-54.368\overlaps.csv
+14:49:08,796   INFO OutputFile:109 - Absolute file nameC:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\output\New_scenario_4.1_2022-05-24_14-48-54.368\overlapCount.txt
+14:49:08,799   INFO OutputFile:109 - Absolute file nameC:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\output\New_scenario_4.1_2022-05-24_14-48-54.368\SIRInformation.csv
+14:49:08,863   INFO Simulation:252 - Finished writing all output files
+14:49:08,864   INFO Simulation:255 - Post-loop: before waitForTraci
+14:49:08,864   INFO Simulation:262 - Post-loop: finished.
+14:49:08,866   INFO ScenarioRun:207 - Simulation run finished.
+14:49:08,868   INFO ProjectView:141 - scenario New_scenario_4.1 finished
+14:49:08,871   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:08,871   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:08,998   INFO VadereProject:302 - SimulationResult{scenarioName='"New_scenario_4.1", nr_overlaps (PID4)=22, state='"SimulationRun completed"}
+14:49:09,000   INFO ScenarioRun:265 - Simulation of scenario New_scenario_4.1 finished.
+14:49:09,003   INFO ProjectView:587 - selected scenario 'New_scenario_4.1'
+14:49:09,117   INFO ProjectView:593 - repainted output table
+14:49:15,402   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:15,402   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:15,407   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:15,407   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:15,505   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:15,506   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:15,601   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:15,601   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:15,707   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:15,707   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:15,798   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:15,798   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:15,902   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:15,902   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:17,933   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:17,933   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:18,254   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:18,254   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:18,386   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:18,386   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:21,430   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:21,430   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,004   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:22,004   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,135   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-Chicken-Test>
+14:49:22,135   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,142   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-RiMEA-Scenario-6_modified>
+14:49:22,142   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,157   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:22,157   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,160   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:22,161   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,163   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:22,164   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,166   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:22,167   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,169   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:22,169   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,172   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:22,173   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,176   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:22,176   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,179   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:22,179   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,182   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:22,182   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,185   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:22,185   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,189   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:22,189   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,192   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-Chicken-Test>
+14:49:22,192   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,196   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-RiMEA-Scenario-6_modified>
+14:49:22,197   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,207   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:22,207   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,211   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:22,211   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,358   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:22,358   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,451   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:22,451   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,546   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:22,546   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,636   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:22,636   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:22,731   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:22,731   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:24,739   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:24,740   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:25,029   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:25,029   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:25,192   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:25,192   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,215   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:28,215   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,777   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:28,777   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,903   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-Chicken-Test>
+14:49:28,903   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,908   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-RiMEA-Scenario-6_modified>
+14:49:28,909   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,921   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:28,921   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,924   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:28,924   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,927   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:28,927   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,931   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:28,931   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,934   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+14:49:28,935   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,938   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:28,939   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,941   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:28,942   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,944   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:28,944   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,947   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:28,947   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,950   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:28,950   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,953   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+14:49:28,953   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,956   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-Chicken-Test>
+14:49:28,956   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,960   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-RiMEA-Scenario-6_modified>
+14:49:28,960   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+14:49:28,965   INFO ProjectView:610 - selected output file 'New_scenario_4.1_2022-05-24_14-48-54.368'
+14:49:32,906  ERROR IOOutput:174 - could not delete output directory: C:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\output\New_scenario_4.1_2022-05-24_14-48-54.368, C:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\output\New_scenario_4.1_2022-05-24_14-48-54.368
+14:49:32,907   INFO ProjectViewModel:83 - output dir C:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\output\New_scenario_4.1_2022-05-24_14-48-54.368 dir deleted.
+14:49:43,464   INFO ActionCloseApplication:28 - closing application...
+16:21:27,291   INFO STDOUTERR:15 - Redirect StdOut and StdErr
+16:21:27,295   INFO VadereApplication:25 - starting Vadere GUI...
+16:21:27,343   INFO VadereConfig:66 - Use config file from path C:\Users\caner\.config\vadere.conf
+16:21:30,332   INFO IOVadere:72 - read project: C:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\vadere.project
+16:21:30,451   INFO IOVadere:82 - analyzed scenario files.
+16:21:30,950   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:21:30,951   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:31,524   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:21:31,525   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:31,684   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:21:31,684   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:31,796   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:21:31,797   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:31,918  ERROR IOOutput:267 - Error in output file New_scenario_4.1_2022-05-24_14-48-54.368
+16:21:31,923   INFO IOOutput:210 - The directory 'New_scenario_4.1_2022-05-24_14-48-54.368' is corrupted and was moved to the 'corrupt' folder.
+16:21:31,924   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:21:31,924   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:34,128   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:21:34,128   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:34,480   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:21:34,480   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:34,643   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:21:34,643   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:37,991   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:21:37,992   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:38,586   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:21:38,586   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:38,771  ERROR IOOutput:267 - Error in output file Scenario 4.1
+16:21:38,773   INFO IOOutput:210 - The directory 'Scenario 4.1' is corrupted and was moved to the 'corrupt' folder.
+16:21:38,774  ERROR IOOutput:267 - Error in output file Scenario 4.4
+16:21:38,776   INFO IOOutput:210 - The directory 'Scenario 4.4' is corrupted and was moved to the 'corrupt' folder.
+16:21:38,777   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-Chicken-Test>
+16:21:38,777   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:38,787   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-RiMEA-Scenario-6_modified>
+16:21:38,788   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:38,809   INFO IOVadere:103 - analyzed: 24, migrated: 0, upToDate: 24, notMigratable: 0
+16:21:38,812   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:21:38,812   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:38,932   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:21:38,932   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:39,059   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:21:39,059   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:39,169   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:21:39,169   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:39,274   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:21:39,275   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:41,444   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:21:41,444   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:41,774   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:21:41,774   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:41,945   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:21:41,945   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:45,240   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:21:45,240   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:45,822   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:21:45,823   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:45,966   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-Chicken-Test>
+16:21:45,966   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:45,973   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-RiMEA-Scenario-6_modified>
+16:21:45,973   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:21:45,987   INFO IOVadere:108 - project loaded: Exercise2
+16:21:45,994   INFO ActionLoadProject:113 - refreshed output table - 2
+16:21:45,998   INFO ProjectView:587 - selected scenario 'New_scenario_4.1'
+16:21:46,322   INFO DataProcessingView:103 - switch to expert view
+16:21:46,725   INFO ProjectView:593 - repainted output table
+16:21:46,725   INFO ActionLoadProject:117 - selected the first scenario
+16:21:46,743   INFO ActionLoadProject:124 - project 'Exercise2' loaded.
+16:21:57,571   INFO ScenarioCache:85 - Cache search location: C:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\scenarios\__cache__
+16:21:57,575   INFO ScenarioRun:147 - Initializing scenario: New_scenario_4.1...
+16:21:57,604   INFO ScenarioRun:128 - scenario context initialized.
+16:21:57,610   INFO ScenarioRun:229 - no mesh New_scenario_4.1.poly was found.
+16:21:57,610   INFO ScenarioRun:229 - no mesh New_scenario_4.1_background.poly was found.
+16:21:57,652   WARN Version:80 - No version control commit hash available!
+16:21:57,804   INFO PotentialFieldDistancesBruteForce:49 - solve floor field (PotentialFieldDistancesBruteForce)
+16:21:57,817   INFO PotentialFieldDistancesBruteForce:106 - Progress:  0% -> 0/90601 [points]
+16:21:57,923   INFO PotentialFieldDistancesBruteForce:106 - Progress: 10% -> 9061/90601 [points]
+16:21:57,975   INFO PotentialFieldDistancesBruteForce:106 - Progress: 20% -> 18121/90601 [points]
+16:21:58,034   INFO PotentialFieldDistancesBruteForce:106 - Progress: 30% -> 27181/90601 [points]
+16:21:58,072   INFO PotentialFieldDistancesBruteForce:106 - Progress: 40% -> 36241/90601 [points]
+16:21:58,093   INFO PotentialFieldDistancesBruteForce:106 - Progress: 50% -> 45301/90601 [points]
+16:21:58,113   INFO PotentialFieldDistancesBruteForce:106 - Progress: 60% -> 54361/90601 [points]
+16:21:58,133   INFO PotentialFieldDistancesBruteForce:106 - Progress: 70% -> 63421/90601 [points]
+16:21:58,154   INFO PotentialFieldDistancesBruteForce:106 - Progress: 80% -> 72481/90601 [points]
+16:21:58,173   INFO PotentialFieldDistancesBruteForce:106 - Progress: 90% -> 81541/90601 [points]
+16:21:58,203   INFO PotentialFieldDistancesBruteForce:96 - floor field initialization time:394[ms]
+16:21:58,209   INFO Topography:428 - Set PedestrianIdCount to start value: 1
+16:21:58,456   INFO EikonalSolverDefaultProvider:23 - floor field initialization time:195[ms]
+16:21:58,566   INFO EikonalSolverDefaultProvider:23 - floor field initialization time:94[ms]
+16:21:58,660   INFO EikonalSolverDefaultProvider:23 - floor field initialization time:81[ms]
+16:21:58,673   INFO Simulation:278 - preLoop finished.
+16:22:12,287   INFO OutputFile:109 - Absolute file nameC:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\output\New_scenario_4.1_2022-05-24_16-21-57.574\postvis.traj
+16:22:12,487   INFO OutputFile:109 - Absolute file nameC:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\output\New_scenario_4.1_2022-05-24_16-21-57.574\overlaps.csv
+16:22:12,493   INFO OutputFile:109 - Absolute file nameC:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\output\New_scenario_4.1_2022-05-24_16-21-57.574\overlapCount.txt
+16:22:12,495   INFO OutputFile:109 - Absolute file nameC:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\output\New_scenario_4.1_2022-05-24_16-21-57.574\SIRInformation.csv
+16:22:12,549   INFO Simulation:252 - Finished writing all output files
+16:22:12,550   INFO Simulation:255 - Post-loop: before waitForTraci
+16:22:12,550   INFO Simulation:262 - Post-loop: finished.
+16:22:12,552   INFO ScenarioRun:207 - Simulation run finished.
+16:22:12,554   INFO ProjectView:141 - scenario New_scenario_4.1 finished
+16:22:12,557   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:22:12,557   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:22:12,682   INFO VadereProject:302 - SimulationResult{scenarioName='"New_scenario_4.1", nr_overlaps (PID4)=22, state='"SimulationRun completed"}
+16:22:12,684   INFO ScenarioRun:265 - Simulation of scenario New_scenario_4.1 finished.
+16:22:12,687   INFO ProjectView:587 - selected scenario 'New_scenario_4.1'
+16:22:12,813   INFO ProjectView:593 - repainted output table
+16:22:22,484 STDERR STDOUTERR:32 - Exception in thread "AWT-EventQueue-0" 
+16:22:22,485 STDERR STDOUTERR:32 - java.lang.NullPointerException
+16:22:22,486 STDERR STDOUTERR:32 - 	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:98)
+16:22:22,486 STDERR STDOUTERR:32 - 	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:77)
+16:22:22,486 STDERR STDOUTERR:32 - 	at java.base/sun.nio.fs.WindowsPath.parse(WindowsPath.java:92)
+16:22:22,486 STDERR STDOUTERR:32 - 	at java.base/sun.nio.fs.WindowsFileSystem.getPath(WindowsFileSystem.java:229)
+16:22:22,487 STDERR STDOUTERR:32 - 	at java.base/java.nio.file.Path.of(Path.java:147)
+16:22:22,487 STDERR STDOUTERR:32 - 	at java.base/java.nio.file.Paths.get(Paths.java:69)
+16:22:22,487 STDERR STDOUTERR:32 - 	at org.vadere.gui.projectview.view.ProjectRunResultDialog$ResultDialog.btnCsvListener(ProjectRunResultDialog.java:283)
+16:22:22,488 STDERR STDOUTERR:32 - 	at java.desktop/java.awt.Button.processActionEvent(Button.java:411)
+16:22:22,488 STDERR STDOUTERR:32 - 	at java.desktop/java.awt.Button.processEvent(Button.java:379)
+16:22:22,488 STDERR STDOUTERR:32 - 	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5011)
+16:22:22,488 STDERR STDOUTERR:32 - 	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4843)
+16:22:22,488 STDERR STDOUTERR:32 - 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
+16:22:22,489 STDERR STDOUTERR:32 - 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+16:22:22,489 STDERR STDOUTERR:32 - 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+16:22:22,489 STDERR STDOUTERR:32 - 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+16:22:22,489 STDERR STDOUTERR:32 - 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+16:22:22,489 STDERR STDOUTERR:32 - 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
+16:22:22,490 STDERR STDOUTERR:32 - 	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+16:22:22,490 STDERR STDOUTERR:32 - 	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
+16:22:22,490 STDERR STDOUTERR:32 - 	at java.base/java.security.AccessController.doPrivileged(Native Method)
+16:22:22,490 STDERR STDOUTERR:32 - 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+16:22:22,490 STDERR STDOUTERR:32 - 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
+16:22:22,491 STDERR STDOUTERR:32 - 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+16:22:22,491 STDERR STDOUTERR:32 - 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+16:22:22,491 STDERR STDOUTERR:32 - 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+16:22:22,491 STDERR STDOUTERR:32 - 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+16:22:22,491 STDERR STDOUTERR:32 - 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+16:22:22,492 STDERR STDOUTERR:32 - 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+16:22:57,571   INFO ProjectView:587 - selected scenario 'New_scenario_4.4'
+16:22:57,764   INFO ProjectView:593 - repainted output table
+16:23:00,890  ERROR ProjectView:691 - java.io.IOException: missing trajectory file with the extension .scenario
+16:23:00,891  ERROR ProjectView:614 - java.io.IOException: missing trajectory file with the extension .scenario
+16:23:15,028   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:15,029   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:15,034   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:15,034   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:15,131   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:15,131   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:15,239   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:15,240   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:15,338   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:15,338   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:15,434   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:15,434   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:17,609   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:17,609   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:17,974   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:17,974   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:18,116   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:18,116   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:21,398   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:21,398   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:21,993   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:21,993   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,128   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:22,128   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,248   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-Chicken-Test>
+16:23:22,248   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,254   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-RiMEA-Scenario-6_modified>
+16:23:22,254   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,269   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:22,269   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,272   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:22,272   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,276   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:22,276   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,279   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:22,280   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,283   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:22,283   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,286   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:22,286   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,290   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:22,290   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,292   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:22,293   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,295   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:22,296   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,298   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:22,298   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,301   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:22,301   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,304   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-Chicken-Test>
+16:23:22,305   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,309   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-RiMEA-Scenario-6_modified>
+16:23:22,309   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,319   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:22,320   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,323   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:22,324   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,425   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:22,426   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,528   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:22,528   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,623   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:22,623   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:22,718   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:22,718   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:24,962   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:24,962   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:25,271   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:25,271   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:25,437   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:25,437   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:28,701   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:28,702   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,299   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:29,299   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,449   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:29,449   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,549   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-Chicken-Test>
+16:23:29,549   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,555   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-RiMEA-Scenario-6_modified>
+16:23:29,556   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,580   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:29,580   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,586   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:29,586   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,589   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:29,589   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,593   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:29,593   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,597   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:29,597   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,600   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:29,600   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,602   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:29,603   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,605   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:29,605   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,606   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:29,606   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,608   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.4>
+16:23:29,608   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,610   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <New_scenario_4.1>
+16:23:29,610   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,614   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-Chicken-Test>
+16:23:29,614   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,617   INFO JsonMigrationAssistant:83 - >> analyzing JSON tree of scenario <Task1-RiMEA-Scenario-6_modified>
+16:23:29,617   INFO JsonMigrationAssistant:103 - Nothing to do current version and target version match
+16:23:29,621   INFO ProjectView:610 - selected output file 'New_scenario_4.4_2022-05-23_23-20-05.284'
+16:23:32,938  ERROR ProjectView:691 - java.io.IOException: missing trajectory file with the extension .scenario
+16:23:32,941   INFO Player:73 - Player killed!
+16:23:32,941  ERROR ProjectView:614 - java.io.IOException: missing trajectory file with the extension .scenario
+16:23:41,330   INFO Player:73 - Player killed!
+16:23:41,331   INFO ProjectView:587 - selected scenario 'Task2-RiMEA-Scenario-1-GNM'
+16:23:41,395   INFO ProjectView:593 - repainted output table
+16:23:44,134   INFO Player:73 - Player killed!
+16:23:44,135   INFO ProjectView:587 - selected scenario 'New_scenario_4.4'
+16:23:44,300   INFO ProjectView:593 - repainted output table
+16:23:46,041   INFO ScenarioCache:85 - Cache search location: C:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\scenarios\__cache__
+16:23:46,042   INFO ScenarioRun:147 - Initializing scenario: New_scenario_4.4...
+16:23:46,043   INFO ScenarioRun:128 - scenario context initialized.
+16:23:46,043   INFO ScenarioRun:229 - no mesh New_scenario_4.4.poly was found.
+16:23:46,043   INFO ScenarioRun:229 - no mesh New_scenario_4.4_background.poly was found.
+16:23:46,045   WARN Version:80 - No version control commit hash available!
+16:23:46,073   INFO PotentialFieldDistancesBruteForce:49 - solve floor field (PotentialFieldDistancesBruteForce)
+16:23:46,075   INFO PotentialFieldDistancesBruteForce:106 - Progress:  0% -> 0/90601 [points]
+16:23:46,093   INFO PotentialFieldDistancesBruteForce:106 - Progress: 10% -> 9061/90601 [points]
+16:23:46,109   INFO PotentialFieldDistancesBruteForce:106 - Progress: 20% -> 18121/90601 [points]
+16:23:46,128   INFO PotentialFieldDistancesBruteForce:106 - Progress: 30% -> 27181/90601 [points]
+16:23:46,146   INFO PotentialFieldDistancesBruteForce:106 - Progress: 40% -> 36241/90601 [points]
+16:23:46,163   INFO PotentialFieldDistancesBruteForce:106 - Progress: 50% -> 45301/90601 [points]
+16:23:46,180   INFO PotentialFieldDistancesBruteForce:106 - Progress: 60% -> 54361/90601 [points]
+16:23:46,198   INFO PotentialFieldDistancesBruteForce:106 - Progress: 70% -> 63421/90601 [points]
+16:23:46,217   INFO PotentialFieldDistancesBruteForce:106 - Progress: 80% -> 72481/90601 [points]
+16:23:46,245   INFO PotentialFieldDistancesBruteForce:106 - Progress: 90% -> 81541/90601 [points]
+16:23:46,263   INFO PotentialFieldDistancesBruteForce:96 - floor field initialization time:189[ms]
+16:23:46,263   INFO Topography:428 - Set PedestrianIdCount to start value: 1
+16:23:46,369   INFO EikonalSolverDefaultProvider:23 - floor field initialization time:96[ms]
+16:23:46,385   INFO Simulation:278 - preLoop finished.
+16:27:06,370   WARN Simulation:396 - interrupt while waitForSimCommand
+16:27:06,370   INFO Simulation:360 - Simulation interrupted.
+16:27:06,371   INFO OutputFile:109 - Absolute file nameC:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\output\New_scenario_4.4_2022-05-24_16-23-46.42\postvis.traj
+16:27:11,995   INFO OutputFile:109 - Absolute file nameC:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\output\New_scenario_4.4_2022-05-24_16-23-46.42\overlaps.csv
+16:27:13,351   INFO OutputFile:109 - Absolute file nameC:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\output\New_scenario_4.4_2022-05-24_16-23-46.42\overlapCount.txt
+16:27:13,354   INFO OutputFile:109 - Absolute file nameC:\Users\caner\Desktop\MLCMS\ml-crowds-group-g\Exercise 2\output\New_scenario_4.4_2022-05-24_16-23-46.42\SIRInformation.csv
+16:27:15,639   INFO Simulation:252 - Finished writing all output files
+16:27:15,639   INFO Simulation:255 - Post-loop: before waitForTraci

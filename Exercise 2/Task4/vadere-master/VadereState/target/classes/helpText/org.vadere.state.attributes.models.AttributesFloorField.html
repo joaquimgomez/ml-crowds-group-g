@@ -18,23 +18,7 @@ saved floor field.
 </p>
 
 <hr>
-<h2> Field: createMethod</h2>
-<p>---</p>
-
-<hr>
 <h2> Field: timeCostAttributes</h2>
-<p>---</p>
-
-<hr>
-<h2> Field: cacheDir</h2>
-<p>
-specifies path in which a cache of the target floor field is saved. This path is relative to
-the executable. @JsonView(...) allows the cache hashing to move the cache directory without
-invalidating existing caches.
-</p>
-
-<hr>
-<h2> Field: obstacleGridPenalty</h2>
 <p>---</p>
 
 <hr>
@@ -64,6 +48,14 @@ X		: agent stuck on minimum in front of narrow corridor
 </p>
 
 <hr>
+<h2> Field: createMethod</h2>
+<p>---</p>
+
+<hr>
+<h2> Field: obstacleGridPenalty</h2>
+<p>---</p>
+
+<hr>
 <h2> Field: potentialFieldResolution</h2>
 <p>
 These attribute values should only be used if createMethod.isUsingCellGrid() == true.
@@ -75,5 +67,13 @@ Solution:
 (1) change AttributesTimeCost timeCostAttributes to ITimeCostFunction like the potential classes in AttributesOSM
 (2) split AttributesTimeCost timeCostAttributes into multiple classes
 (3) add a new AttributesTimeCost into the top level (i.e. attributesModel) json.
+</p>
+
+<hr>
+<h2> Field: cacheDir</h2>
+<p>
+specifies path in which a cache of the target floor field is saved. This path is relative to
+the executable. @JsonView(...) allows the cache hashing to move the cache directory without
+invalidating existing caches.
 </p>
 

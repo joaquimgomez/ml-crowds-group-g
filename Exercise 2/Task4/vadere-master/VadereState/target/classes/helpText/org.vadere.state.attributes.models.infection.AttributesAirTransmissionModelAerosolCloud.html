@@ -8,28 +8,11 @@ are directly linked to the respiratory cycle defined in <a href='/helpText/rel_/
 </p>
 
 <hr>
-<h2> Field: pedestrianDispersionWeight</h2>
-<p>
-Describes dispersion depending on agents, i.e. the spatial spread of aerosol clouds caused by moving agents
-(which results temporally in local air movement). Each agent that passes a cloud with speed > 0 m / s contributes
-to the dispersion of the cloud: deltaRadius = pedestrianSpeed * pedestrianDispersionWeight
-This increases the radius of aerosol clouds equally in all directions (three-dimensional).
-Unit: 1
-</p>
-
-<hr>
 <h2> Field: absorptionRate</h2>
 <p>
 Describes how much pathogen carried by aerosols is absorbed per inhalation; is to be reduced if aerosol
 inhalation is mitigated, e.g. by masks.
 Unit: 1 / inhalation (can also be interpreted as m^3 / inhalation)
-</p>
-
-<hr>
-<h2> Field: halfLife</h2>
-<p>
-Describes exponential decay of pathogen load within an aerosol cloud;
-Unit: seconds
 </p>
 
 <hr>
@@ -46,6 +29,23 @@ Unit: meter
 Describes constant dispersion (over time), i.e. the spatial spread over time due to local air movement.
 This increases the radius of aerosol clouds equally in all directions (three-dimensional).
 Unit: meter / second
+</p>
+
+<hr>
+<h2> Field: pedestrianDispersionWeight</h2>
+<p>
+Describes dispersion depending on agents, i.e. the spatial spread of aerosol clouds caused by moving agents
+(which results temporally in local air movement). Each agent that passes a cloud with speed > 0 m / s contributes
+to the dispersion of the cloud: deltaRadius = pedestrianSpeed * pedestrianDispersionWeight
+This increases the radius of aerosol clouds equally in all directions (three-dimensional).
+Unit: 1
+</p>
+
+<hr>
+<h2> Field: halfLife</h2>
+<p>
+Describes exponential decay of pathogen load within an aerosol cloud;
+Unit: seconds
 </p>
 
 <hr>

@@ -6,9 +6,11 @@ Holds all viable gradient provider types.
 </p>
 
 <hr>
-<h2> Field: PEDESTRIAN_CYCLE_CONTINUOUS</h2>
+<h2> Field: OBSTACLE_CONTINUOUS</h2>
 <p>
-obstacle "forces", continuous
+using continuous solution with
+Euklidean distance to targets, mollified so that the gradient is
+continuous
 </p>
 
 <hr>
@@ -17,6 +19,12 @@ obstacle "forces", continuous
 uses PEDESTRIAN_CONTINUOUS, but enables the
 user to define two teleporter lines where the pedestrians are set back to
 the respective other line.
+</p>
+
+<hr>
+<h2> Field: PEDESTRIAN_CYCLE_CONTINUOUS</h2>
+<p>
+obstacle "forces", continuous
 </p>
 
 <hr>
@@ -36,12 +44,4 @@ distance to targets
 <hr>
 <h2> Field: FLOOR_EIKONAL_DISCRETE</h2>
 <p>---</p>
-
-<hr>
-<h2> Field: OBSTACLE_CONTINUOUS</h2>
-<p>
-using continuous solution with
-Euklidean distance to targets, mollified so that the gradient is
-continuous
-</p>
 

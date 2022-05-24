@@ -7,9 +7,15 @@ TODO: split AttributesTimeCost timeCostAttributes into multiple classes see comm
 </p>
 
 <hr>
-<h2> Field: type</h2>
+<h2> Field: pedestrianDynamicWeight</h2>
 <p>
-the method of density measurement.
+the loading that will be multiplied to the dynamic loading.
+</p>
+
+<hr>
+<h2> Field: standardDeviation</h2>
+<p>
+the standard derivation required for the gaussian method.
 </p>
 
 <hr>
@@ -20,16 +26,16 @@ target than the potential field that will be generated.
 </p>
 
 <hr>
-<h2> Field: pedestrianSameTargetDensityWeight</h2>
+<h2> Field: pedestrianWeight</h2>
 <p>
-(hartmann-2012, c_D) = the weight of the pedestrian that has the some
-target as the potential field that will be generated.
+the weight for the constant loading c in hartmann-2012.
 </p>
 
 <hr>
-<h2> Field: pedestrianDynamicWeight</h2>
+<h2> Field: queueWidthLoading</h2>
 <p>
-the loading that will be multiplied to the dynamic loading.
+(queueing only) the factor that influences the queue width. = 1 > means
+lower width. The value should be in the interval [1;infty[.
 </p>
 
 <hr>
@@ -45,16 +51,10 @@ set.
 </p>
 
 <hr>
-<h2> Field: queueWidthLoading</h2>
+<h2> Field: pedestrianSameTargetDensityWeight</h2>
 <p>
-(queueing only) the factor that influences the queue width. = 1 > means
-lower width. The value should be in the interval [1;infty[.
-</p>
-
-<hr>
-<h2> Field: pedestrianWeight</h2>
-<p>
-the weight for the constant loading c in hartmann-2012.
+(hartmann-2012, c_D) = the weight of the pedestrian that has the some
+target as the potential field that will be generated.
 </p>
 
 <hr>
@@ -64,9 +64,9 @@ only used in TimeCostFunctionObstacleDistance
 </p>
 
 <hr>
-<h2> Field: obstacleDensityWeight</h2>
+<h2> Field: type</h2>
 <p>
-the weight of the density.
+the method of density measurement.
 </p>
 
 <hr>
@@ -76,8 +76,8 @@ only used in TimeCostFunctionObstacleDistance
 </p>
 
 <hr>
-<h2> Field: standardDeviation</h2>
+<h2> Field: obstacleDensityWeight</h2>
 <p>
-the standard derivation required for the gaussian method.
+the weight of the density.
 </p>
 
