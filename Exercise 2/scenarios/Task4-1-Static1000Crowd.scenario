@@ -2,7 +2,6 @@
   "name" : "Task4-1-Static1000Crowd",
   "description" : "",
   "release" : "2.1",
-  "commithash" : "No version control commit hash available!",
   "processWriters" : {
     "files" : [ {
       "type" : "org.vadere.simulator.projects.dataprocessing.outputfile.EventtimePedestrianIdOutputFile",
