@@ -1,9 +1,11 @@
 package org.vadere.state.attributes.models;
 
+import org.vadere.annotation.factories.attributes.ModelAttributeClass;
 import org.vadere.state.attributes.Attributes;
 
 
 /* Attribute information about SIR Model */
+@ModelAttributeClass
 public class AttributesSIRG extends Attributes {
 
     private int infectionsAtStart = 10;
