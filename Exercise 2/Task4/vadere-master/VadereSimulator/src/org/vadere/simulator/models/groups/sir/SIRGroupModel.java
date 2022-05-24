@@ -30,7 +30,7 @@ public class SIRGroupModel extends AbstractGroupModel<SIRGroup> {
     private AttributesSIRG attributesSIRG;
     private Topography topography;
     private IPotentialFieldTarget potentialFieldTarget;
-    private int totalInfected = 0;
+    private int totalInfected = 10;
     private double accumulatedPeriodsOfSimTimeInSec = 0;
     private double previousSimTimeInSec = 0;
 
