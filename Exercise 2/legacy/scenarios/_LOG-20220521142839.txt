@@ -1,8 +1,0 @@
-Info:Analyzing scenario file scenarios/New_scenario_4.1
-Info:<New_scenario_4.1> Transform to: 1.13
-Info:<New_scenario_4.1> Transform to: 1.14
-Info:<New_scenario_4.1> Transform to: 1.15
-Info:<New_scenario_4.1> Transform to: 1.16
-Info:<New_scenario_4.1> Transform to: 2.0
-Info:<New_scenario_4.1> Transform to: 2.1
-Info:Migration successful. Move copy of old version to "legacy" directory
