@@ -1,0 +1,59 @@
+<h1> AttributesAirTransmissionModelAerosolCloud</h1>
+
+<p>
+Attributes related to aerosol clouds that are shared among all aerosol clouds. These are not defined for each
+instance of <a href='/helpText/org.vadere.state.scenario.AerosolCloud.html' class='class_link'>AerosolCloud</a> separately to keep the class lean.
+The frequency of occurrence is not defined here because <a href='/helpText/org.vadere.state.scenario.AerosolCloud.html' class='class_link'>AerosolCloud</a>s (if considered in the exposure model)
+are directly linked to the respiratory cycle defined in <a href='/helpText/rel_/AttributesAirTransmissionModel.html' class='class_link'>AttributesAirTransmissionModel</a>.
+</p>
+
+<hr>
+<h2> Field: absorptionRate</h2>
+<p>
+Describes how much pathogen carried by aerosols is absorbed per inhalation; is to be reduced if aerosol
+inhalation is mitigated, e.g. by masks.
+Unit: 1 / inhalation (can also be interpreted as m^3 / inhalation)
+</p>
+
+<hr>
+<h2> Field: initialRadius</h2>
+<p>
+Describes initial spatial extent of aerosol clouds. The aerosol clouds have all the same initial
+circular extent (in the two-dimensional model). In 3D, we actually imagine them as spheres.
+Unit: meter
+</p>
+
+<hr>
+<h2> Field: airDispersionFactor</h2>
+<p>
+Describes constant dispersion (over time), i.e. the spatial spread over time due to local air movement.
+This increases the radius of aerosol clouds equally in all directions (three-dimensional).
+Unit: meter / second
+</p>
+
+<hr>
+<h2> Field: pedestrianDispersionWeight</h2>
+<p>
+Describes dispersion depending on agents, i.e. the spatial spread of aerosol clouds caused by moving agents
+(which results temporally in local air movement). Each agent that passes a cloud with speed > 0 m / s contributes
+to the dispersion of the cloud: deltaRadius = pedestrianSpeed * pedestrianDispersionWeight
+This increases the radius of aerosol clouds equally in all directions (three-dimensional).
+Unit: 1
+</p>
+
+<hr>
+<h2> Field: halfLife</h2>
+<p>
+Describes exponential decay of pathogen load within an aerosol cloud;
+Unit: seconds
+</p>
+
+<hr>
+<h2> Field: initialPathogenLoad</h2>
+<p>
+Describes the amount of pathogen in an aerosol cloud immediately after exhalation.
+Indirectly describes the infectious pedestrian's infectiousness; is to be reduced if aerosol emission
+is mitigated, e.g. by masks.
+Unit: particles / exhalation
+</p>
+

@@ -1,0 +1,8 @@
+Info:Analyzing scenario file scenarios/test
+Info:<test> Transform to: 1.13
+Info:<test> Transform to: 1.14
+Info:<test> Transform to: 1.15
+Info:<test> Transform to: 1.16
+Info:<test> Transform to: 2.0
+Info:<test> Transform to: 2.1
+Info:Migration successful. Move copy of old version to "legacy" directory
