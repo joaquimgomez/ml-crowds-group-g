@@ -1,8 +1,7 @@
 {
-  "name" : "Task5-2-Static1000Crowd",
+  "name" : "Task5-Test1",
   "description" : "",
   "release" : "2.1",
-  "commithash" : "No version control commit hash available!",
   "processWriters" : {
     "files" : [ {
       "type" : "org.vadere.simulator.projects.dataprocessing.outputfile.EventtimePedestrianIdOutputFile",
@@ -101,10 +100,10 @@
       },
       "org.vadere.state.attributes.models.AttributesSIRG" : {
         "infectionsAtStart" : 10,
-        "infectionRate" : 0.1,
+        "infectionRate" : 0.05,
         "infectionMaxDistance" : 1.0,
         "recoveryRate" : 0.005,
-        "recoveryEnabled" : false
+        "recoveryEnabled" : true
       }
     },
     "attributesSimulation" : {
@@ -117,7 +116,7 @@
       "digitsPerCoordinate" : 2,
       "useFixedSeed" : true,
       "fixedSeed" : -4827838234252959512,
-      "simulationSeed" : -4827838234252959512
+      "simulationSeed" : 0
     },
     "attributesPsychology" : {
       "usePsychologyLayer" : false,
