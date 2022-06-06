@@ -39,7 +39,7 @@ def plot_phase_portrait(A, X, Y):
 
 def plot_phase_portrait(X, Y, U, V, figsize=(15, 15)):
     """
-    Plots a linear vector field in a streamplot, defined with X and Y coordinates and the matrix A.
+    Plots a linear vector field in a streamplot, defined with X and Y coordinates and velocities U and V.
     """
     fig = plt.figure(figsize=figsize)
     gs = gridspec.GridSpec(nrows=3, ncols=2, height_ratios=[1, 1, 2])
