@@ -37,6 +37,20 @@ def plot_phase_portrait(A, X, Y):
     ax0.set_aspect(1)
     return ax0
 
+def plot_phase_portrait(X, Y, U, V, figsize=(15, 15)):
+    """
+    Plots a linear vector field in a streamplot, defined with X and Y coordinates and the matrix A.
+    """
+    fig = plt.figure(figsize=figsize)
+    gs = gridspec.GridSpec(nrows=3, ncols=2, height_ratios=[1, 1, 2])
+
+    #  Varying density along a streamline
+    ax0 = fig.add_subplot(gs[0, 0])
+    ax0.streamplot(X, Y, U, V, density=[0.5, 1])
+    ax0.set_title('Streamplot for linear vector field A*x');
+    ax0.set_aspect(1)
+    return ax0
+
 def plot_bifurcation_diagram(interval, alphas, labels, axis):
     """
     Plots the bifurcation diagram for the interval, using the provided alphas, labels for the alphas
