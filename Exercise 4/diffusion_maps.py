@@ -11,6 +11,7 @@ class DiffusionMaps:
 		pass
 
 	def distance_matrix(self, data):
+		# TODO: Will change this guy to KDTree
 		distances = euclidean_distances(data)
 		return distances
 
@@ -40,8 +41,8 @@ class DiffusionMaps:
 
 		# Symmetric matrix T_hat (Step 7)
 		self.inv_Qsqrt = np.sqrt(np.linalg.inv(self.Q))
-
 		self.T_hat = np.dot(self.inv_Qsqrt, np.dot(self.K, self.inv_Qsqrt))
+
 		# L + 1 largest eigenvalues and eigenvectors of T_hat (Step 8)
 		eigvals, eigvecs = eigsh(self.T_hat, k=L+1)
 
