@@ -21,13 +21,11 @@ class DiffusionMaps:
 		# Pairwise distance matrix(Step 1)
 		self.distances = self.distance_matrix(data)
 
-
 		# 5% of the diameter of the dataset is set to epsilon(Step 2)
 		self.epsilon = 0.05 * np.max(self.distances)
 
 		# Kernel Matrix W (Step 3)
 		self.W = np.exp(-1 * (self.distances ** 2) / self.epsilon)
-
 
 		# Diagonal Normalization Matrix P. (Step 4)
 		self.P = np.diag(np.sum(self.W, axis=1))
