@@ -1,3 +1,4 @@
+from gc import callbacks
 from tensorflow import keras
 from keras.models import Model
 from keras import Input
@@ -126,7 +127,7 @@ def create_vae(encoder, decoder, visible, original_dim):
 
     return vae, encoder, decoder
 
-def train_and_plot_vae(vae, encoder, decoder, X_train, X_test, epochs=100, batch_size=128):
+def train_and_plot_vae(vae, encoder, decoder, X_train, X_test, epochs=100, batch_size=128, callbacks=[]):
     """Given a VAE model, trains the model and plots the loss per epoch.
 
     Args:
@@ -137,6 +138,7 @@ def train_and_plot_vae(vae, encoder, decoder, X_train, X_test, epochs=100, batch
         X_test (array): Test data.
         epochs (int): Number of training epochs.
         batch_size (int): Batch size.
+        callbacks (list): List of trainign callbacks.
         
     Returns:
         keras.Model: VAE model.
@@ -144,7 +146,7 @@ def train_and_plot_vae(vae, encoder, decoder, X_train, X_test, epochs=100, batch
         keras.Model: Decoder model.
     """
     # Train VAE model
-    history = vae.fit(X_train, X_train, epochs=epochs, batch_size=128, validation_data=(X_test, X_test))
+    history = vae.fit(X_train, X_train, epochs=epochs, batch_size=batch_size, validation_data=(X_test, X_test), callbacks=callbacks)
 
     # Plot a loss chart
     fig, ax = plt.subplots(figsize=(16,9), dpi=300)
