@@ -21,38 +21,55 @@ def leastSquaresMinimization(data):
     return a, b
 
 def radialBasisFunction(xl, x, epsilon):
-    return np.exp(-(xl-x)**2 / (epsilon**2))
+    """Computes the results of the radial basis function phi_l = exp(-||x_l - x||^2 / epsilon^2).
+
+    Args:
+        xl (array): Center of the function
+        x (array): Input of the functon
+        epsilon (float): bandwidth.
+
+    Returns:
+        array: Result of the RBF.
+    """
+    return np.exp(-(xl - x)**2 / (epsilon**2))
 
 def approximateNonLinearFunction(data, L, epsilon):
+    """Approximates the given data using L radial basis functions with a epsilon bandwidth.
+
+    Args:
+        data (array): Data to be approximated.
+        L (int): Number of radial basis functions to accumulate.
+        epsilon (float): Bandwidth of the RBF.
+
+    Returns:
+        array: Array with the resulting approximation.
+    """
+    # Unpack the data in x and y
     x, y = data[:, 0], data[:, 1]
     
-    # 
+    # Computation of L data centers for the radial basasis function
     #randomPoints = np.random.permutation(data.shape[0])[:L]
     #centers = [x[i] for i in randomPoints]
-
     def getCenters():
         centers = []
-        points =[]
         for i in range(L):
-            points.append(np.min(x) + (i*(np.max(x)-np.min(x))/L)) #?
-        
-        for i in range(L):
-            centers.append(np.ones(len(x))*points[i])
-        
+            center = np.min(x) + (i*(np.max(x) - np.min(x)) / L) #?
+            centers.append(np.ones(len(x)) * center)
         return centers
+        
     centers = getCenters()
     
-    #
+    # Computation of L radial basis functions
     rbfResults = []
     for l in range(L):
         rbfResults.append(radialBasisFunction(centers[l], x, epsilon))   
     rbfResults = np.array(rbfResults)
     
-    #
+    # Computationf of L coefficients for the L radial basis functions
     A = np.vstack([rbfResults, np.ones(rbfResults.shape)]).T
     C, residuals, rank, singularValues = np.linalg.lstsq(A, y, rcond=None)
     
-    #
+    # Accumulation of the radial basis functions times the coefficients
     f = np.zeros(len(x))
     for l in range(L):
         f += C[l] * radialBasisFunction(centers[l], x, epsilon)
