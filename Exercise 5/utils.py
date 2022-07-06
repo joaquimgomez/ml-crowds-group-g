@@ -53,7 +53,7 @@ def approximateNonLinearFunction(data, L, epsilon):
     def getCenters():
         centers = []
         for i in range(L):
-            center = np.min(x) + (i*(np.max(x) - np.min(x)) / L) #?
+            center = np.min(x) + i * ((np.max(x) - np.min(x)) / L)
             centers.append(np.ones(len(x)) * center)
         return centers
         
