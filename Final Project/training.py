@@ -1,11 +1,13 @@
 from NeuralNetwork import TordeuxNet, CrowdDataset
 
+import torch
 from sklearn.model_selection import KFold, train_test_split
 from torch.utils.data import DataLoader
 import pytorch_lightning as pl
-
 from pytorch_lightning.callbacks.early_stopping import EarlyStopping
 from pytorch_lightning.callbacks import TQDMProgressBar
+
+import numpy as np
 
 import matplotlib.pyplot as plt
 
@@ -72,14 +74,14 @@ def bootstrap_cv(dataset, bootstrapping_iterations, bootstrapping_num_samples, m
   for i in range(0, bootstrapping_iterations):
     print("BOOTSTRAPP ITERATION {}".format(i))
     # Select random for bootstrapping iteration at random
-    bootstrap_data = dataset.sample(n = bootstrapping_num_samples) # 5 - 5000 -> 5 - 9000
+    bootstrap_data = dataset.sample(n = bootstrapping_num_samples)
 
     # Half of the data for training, half for testing
     if diff_test_dataset == None:
       train, test = train_test_split(bootstrap_data, test_size=0.5)
     else:
-      train = dataset
-      test = diff_test_dataset
+      train = dataset.sample(n = int(bootstrapping_num_samples/2))
+      test = diff_test_dataset.sample(n = int(bootstrapping_num_samples/2))
 
     # Cross-validation
     train_losses, validation_losses, test_losses = train_and_evaluate(model_args, folds, batch_size, max_epochs, train, test)
