@@ -28,10 +28,11 @@ def simple_train(model_args, batch_size, max_epochs, dataset):
   test_mse = trainer.predict(model, test_loader)
 
   # Prints, plots and returns
+  """model = model.to("cpu")
   plt.plot(range(len(model.training_metrics)), model.training_metrics, label = "Training loss")
   plt.plot(range(len(model.validation_metrics)), model.validation_metrics, label = "Validation loss")
   plt.legend()
-  plt.show()
+  plt.show()"""
 
   print("Last epoch training loss: {}".format(model.training_metrics[-1]))
   print("Last epoch validation loss: {}".format(model.validation_metrics[-1]))
