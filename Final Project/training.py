@@ -37,7 +37,7 @@ def simple_train(model_args, batch_size, max_epochs, dataset):
   print("Last epoch validation loss: {}".format(model.validation_metrics[-1]))
   print("Test MSE: {}".format(float(torch.stack(test_mse).mean())))
 
-  return model.training_metrics[-1], model.training_metrics[-1], float(torch.stack(test_mse).mean())
+  return model.training_metrics[-1], model.training_metrics[-1], float(torch.stack(test_mse).mean()), model
 
 def train_and_evaluate(model_args, kfolds, batch_size, max_epochs, train_validation_split, test_split):
   kf = KFold(n_splits=kfolds, random_state=1234, shuffle=True)
