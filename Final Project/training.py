@@ -21,7 +21,7 @@ def simple_train(model_args, batch_size, max_epochs, dataset):
 
   # Train model
   model = TordeuxNet(model_args)
-  trainer = pl.Trainer(max_epochs = max_epochs, callbacks=[EarlyStopping(monitor="val_loss", mode="min", patience=10)])
+  trainer = pl.Trainer(accelerator="gpu", devices=1, max_epochs = max_epochs, callbacks=[EarlyStopping(monitor="val_loss", mode="min", patience=10)])
   trainer.fit(model, train_loader, val_loader)
 
   # Compute test MSE
@@ -54,7 +54,7 @@ def train_and_evaluate(model_args, kfolds, batch_size, max_epochs, train_validat
 
     # Train model
     model = TordeuxNet(model_args)
-    trainer = pl.Trainer(max_epochs = max_epochs, callbacks=[EarlyStopping(monitor="val_loss", mode="min", patience=10), TQDMProgressBar(refresh_rate=15)])
+    trainer = pl.Trainer(accelerator="gpu", devices=1, max_epochs = max_epochs, callbacks=[EarlyStopping(monitor="val_loss", mode="min", patience=10), TQDMProgressBar(refresh_rate=15)])
     trainer.fit(model, train_loader, val_loader)
 
     # Save training and validation losses
@@ -72,16 +72,16 @@ def bootstrap_cv(dataset, bootstrapping_iterations, bootstrapping_num_samples, m
   bootstrap_validation_losses = []
   bootstrap_test_losses = []
   for i in range(0, bootstrapping_iterations):
-    print("BOOTSTRAPP ITERATION {}".format(i))
+    print("BOOTSTRAP ITERATION {}".format(i))
     # Select random for bootstrapping iteration at random
     bootstrap_data = dataset.sample(n = bootstrapping_num_samples)
 
     # Half of the data for training, half for testing
-    if diff_test_dataset == None:
-      train, test = train_test_split(bootstrap_data, test_size=0.5)
+    if diff_test_dataset is not None:
+      train = dataset.sample(n=int(bootstrapping_num_samples / 2))
+      test = diff_test_dataset.sample(n=int(bootstrapping_num_samples / 2))
     else:
-      train = dataset.sample(n = int(bootstrapping_num_samples/2))
-      test = diff_test_dataset.sample(n = int(bootstrapping_num_samples/2))
+      train, test = train_test_split(bootstrap_data, test_size=0.5)
 
     # Cross-validation
     train_losses, validation_losses, test_losses = train_and_evaluate(model_args, folds, batch_size, max_epochs, train, test)
