@@ -12,6 +12,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def simple_train(model_args, batch_size, max_epochs, dataset):
+  """Performs a simple trainign following the 80-10-10 splitting data rule
+
+  Args:
+      model_args (dict): Dictionary with the required parameters by the model (k and lr)
+      batch_size (int): Batch size of the training
+      max_epochs (int): Maximum number of epochs for the training
+      dataset (dataframe): Dataset for the training, validation and testing
+
+  Returns:
+      dataframe: Dataframe with the columns MEAN SPACING and 2k columns from the flattened RELATIVE POSITION arrays
+  """
   train, remain = train_test_split(dataset, train_size=0.8)
   validation, test = train_test_split(remain, test_size = 0.5)
 
@@ -40,6 +51,21 @@ def simple_train(model_args, batch_size, max_epochs, dataset):
   return model.training_metrics[-1], model.training_metrics[-1], float(torch.stack(test_mse).mean()), model
 
 def train_and_evaluate(model_args, kfolds, batch_size, max_epochs, train_validation_split, test_split):
+  """Performs kfolds-Fold Cross Validation training for the given data, maximum number of epochs and batch size
+
+  Args:
+      model_args (dict): Dictionary with the required parameters by the model (k and lr)
+      kfolds (int): Number of folds for the corss validation
+      batch_size (int): Batch size of the training
+      max_epochs (int): Maximum number of epochs for the training
+      train_validation_split (dataframe): Dataset for the training and validation
+      test_split (dataframe): Dataset for testing
+
+  Returns:
+      cv_training_losses (list): List with the final training losses for every CV fold
+      cv_validation_losses (list): List with the final validation losses for every CV fold
+      cv_test_losses (list): List with the test losses 
+  """
   kf = KFold(n_splits=kfolds, random_state=1234, shuffle=True)
 
   # Train with K-Fold CV and save losses
@@ -68,6 +94,18 @@ def train_and_evaluate(model_args, kfolds, batch_size, max_epochs, train_validat
   return cv_training_losses, cv_validation_losses, cv_test_losses
 
 def bootstrap_cv(dataset, bootstrapping_iterations, bootstrapping_num_samples, model_args, folds, batch_size, max_epochs, diff_test_dataset = None):
+  """Performs bootstrapping + kfolds-Fold Cross Validation training
+
+  Args:
+      dataset (dataframe): Dataset for the training, validation and testing
+      bootstrapping_iterations (int): Number of bootstrapping iterations
+      bootstrapping_num_samples (int): Number of samples per bootstrapping iteration
+      model_args (dict): Dictionary with the required parameters by the model (k and lr)
+      folds (int): Number of folds for the corss validation
+      batch_size (int): Batch size of the training
+      max_epochs (int): Maximum number of epochs for the training
+      diff_test_dataset (dataframe, optional): If set, this dataset will be used for testing
+  """
   bootstrap_training_losses = []
   bootstrap_validation_losses = []
   bootstrap_test_losses = []

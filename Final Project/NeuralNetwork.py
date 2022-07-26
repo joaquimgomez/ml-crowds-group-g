@@ -9,11 +9,10 @@ class TordeuxNet(pl.LightningModule):
     super().__init__()
     self.net = nn.Sequential(
         nn.Linear(1 + 2 * args["k"], 3),
-        nn.ReLU(), # Activation function not specified in the paper. R 'logistic' as default
+        nn.ReLU(), 
         nn.Linear(3,3),
         nn.ReLU(),
         nn.Linear(3, 1),
-        #nn.ReLU()
     )
     self.lr = args['lr']
     self.loss = F.mse_loss
@@ -26,7 +25,9 @@ class TordeuxNet(pl.LightningModule):
     return speed
 
   def configure_optimizers(self):
-    # The paper uses the implementation from neuralnet R package. It uses Backpropagation (Rumelhart 1986) without specific LR. The most similar algorithm in PyTorch is SGD, but we use Adam.
+    # The paper uses the implementation from neuralnet R package. 
+    # It uses Backpropagation (Rumelhart 1986) without specific LR. 
+    # The most similar algorithm in PyTorch is SGD, but we use Adam.
     optimizer = torch.optim.Adam(self.parameters(), lr=self.lr)
     return optimizer
 

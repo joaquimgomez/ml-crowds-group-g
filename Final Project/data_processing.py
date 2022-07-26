@@ -3,6 +3,14 @@ import numpy as np
 
 
 def compute_speed(dataframe):
+  """Computes the speed of every pedestrian in the dataset using the current and the next positions/frames.
+
+  Args:
+      dataframe (Pandas Dataframe): Dataframe with columns PedestrianID, FRAME, X, Y
+
+  Returns:
+      dataframe: Same datafram as in the input but with the extra SPEED column
+  """
   speeds = []
   indexs_cant_compute_velocity = []
   for _, group in dataframe.groupby(by='PedestrianID'):
@@ -24,6 +32,14 @@ def compute_speed(dataframe):
   return dataframe
 
 def obtain_neighbors(dataframe):
+  """Computes the the neighbors for every pedestrian and every frame in the dataset.
+
+  Args:
+      dataframe (Pandas Dataframe): Dataframe with columns PedestrianID, FRAME, X, Y, SPEED
+
+  Returns:
+      dataframe: Same datafram as in the input but with the extra NEIGHBORS columns
+  """
   # Compute neighbors of each pedestrian by frame, because there are frames with more or less pedestrians
   neighbors_positions_per_id_frame = {}
   for _, frame in dataframe.groupby(by='FRAME'):
@@ -49,6 +65,14 @@ def obtain_neighbors(dataframe):
   return dataframe
 
 def compute_mean_spacing(dataframe, k):
+  """Compute the mean spacing for every pedestrian and frame and the k closest neighbors
+
+  Args:
+      dataframe (Pandas Dataframe): Dataframe with columns PedestrianID, FRAME, X, Y, SPEED, NEIGHBORS
+
+  Returns:
+      dataframe: Same datafram as in the input but with the extra MEAN SPACING column
+  """
   # Firstly, delete frames with #pedestrians < k
   frames_to_delete = [] 
   for _, frame in dataframe.groupby(by='FRAME'):
@@ -67,6 +91,14 @@ def compute_mean_spacing(dataframe, k):
   return dataframe
 
 def obtain_relative_positions(dataframe, k):
+  """Compute the the relative positions for the k closest neighbors for every pedestrian and frame in the dataset
+
+  Args:
+      dataframe (Pandas Dataframe): Dataframe with columns PedestrianID, FRAME, X, Y, SPEED, NEIGHBORS, MEAN SPACING
+
+  Returns:
+      dataframe: Same datafram as in the input but with the extra RELATIVE POSITIONS column
+  """
   dataframe['RELATIVE POSITIONS'] = np.nan
   dataframe['RELATIVE POSITIONS'] = dataframe['RELATIVE POSITIONS'].astype('object')
   for index, row in dataframe.iterrows():
@@ -79,18 +111,19 @@ def obtain_relative_positions(dataframe, k):
   return dataframe
 
 def preprocess_dataset(dataframe, k):
+  """Preprocess the input dataset to obtain a final data with the columns PedestrianID, FRAME, X, Y, SPEED, NEIGHBORS, MEAN SPACING and RELATIVE POSITIONS
+
+  Args:
+      dataframe (Pandas Dataframe): Dataframe with columns PedestrianID, FRAME, X, Y
+
+  Returns:
+      dataframe: Same datafram as in the input but with the extra columns SPEED, NEIGHBORS, MEAN SPACING and RELATIVE POSITIONS
+  """
   # Check if we have as input the dataframe or the path to the dataset
   if isinstance(dataframe, str):
     dataframe = pd.read_csv(dataframe,
                             sep=' ',
                             names=['PedestrianID', 'FRAME', 'X', 'Y', 'Z'])
-  
-  # Check if dataset correctly sorted
-  #sorted = []
-  #for name, group in dataframe.groupby(by='PedestrianID'):
-  #  sorted.append(dataframe.Index(group['FRAME']).is_monotonic)
-  #if not all(sorted):
-  #  print("Dataset not sorted!")
 
   # Add the speed of each pedestrian
   dataframe = compute_speed(dataframe)
@@ -106,7 +139,16 @@ def preprocess_dataset(dataframe, k):
 
   return dataframe
 
-def prepare_data_for_training_testing(dataframe_full, k, splits):
+def prepare_data_for_training_testing(dataframe_full, k):
+  """Prepares the dataframe with the columns PedestrianID, FRAME, X, Y, SPEED, NEIGHBORS, MEAN SPACING and RELATIVE POSITIONS
+  to be consumed by a NN. The final dataset has the columns MEAN SPACING and 2k columns from the flattened RELATIVE POSITION arrays
+
+  Args:
+      dataframe (Pandas Dataframe): Dataframe with columns PedestrianID, FRAME, X, Y, SPEED, NEIGHBORS, MEAN SPACING and RELATIVE POSITIONS
+
+  Returns:
+      dataframe: Dataframe with the columns MEAN SPACING and 2k columns from the flattened RELATIVE POSITION arrays
+  """
   data = pd.DataFrame()
 
   # Add mean spacing for every pedestrian and frame
