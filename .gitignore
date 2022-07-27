@@ -7,3 +7,9 @@
 __pycache__
 
 *.class
+
+*.zip
+
+Final Project/data/Bottleneck_Data/Preprocessed/
+
+Final Project/data/Corridor_Data/Preprocessed/
